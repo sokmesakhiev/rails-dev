@@ -5,16 +5,16 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              TechConsult
+              RailsDev
             </span>
             <p className="text-sm text-muted-foreground mt-2">
               Ruby on Rails & ReactJS Experts
             </p>
           </div>
-          
+
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} TechConsult. All rights reserved.
+              © {new Date().getFullYear()} RailsDev. All rights reserved.
             </p>
           </div>
         </div>
