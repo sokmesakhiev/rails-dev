@@ -33,13 +33,13 @@ const About = () => {
             About Us
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            We're a team of passionate developers and consultants specializing in Ruby on Rails 
-            and ReactJS. With years of experience building web applications for startups and 
+            We're a team of passionate developers and consultants specializing in Ruby on Rails
+            and ReactJS. With years of experience building web applications for startups and
             enterprises, we bring technical excellence and business insight to every project.
           </p>
           <p className="text-lg text-muted-foreground">
-            Our mission is simple: help businesses succeed by building exceptional web applications 
-            that are fast, scalable, and beautiful. We believe in clean code, modern practices, 
+            Our mission is simple: help businesses succeed by building exceptional web applications
+            that are fast, scalable, and beautiful. We believe in clean code, modern practices,
             and building long-term partnerships with our clients.
           </p>
         </div>
@@ -67,7 +67,7 @@ const About = () => {
             Let's discuss how we can help bring your vision to life with Ruby on Rails and ReactJS.
           </p>
           <a
-            href="mailto:hello@techconsult.dev"
+            href="mailto:ksokmesa@gmail.com"
             className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
           >
             Get in Touch
