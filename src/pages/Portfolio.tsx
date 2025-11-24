@@ -87,7 +87,7 @@ const Portfolio = () => {
                 Portfolio & Experience
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                A track record of building scalable solutions across payment systems, 
+                A track record of building scalable solutions across payment systems,
                 data platforms, and AI-powered applications.
               </p>
             </div>
@@ -100,14 +100,14 @@ const Portfolio = () => {
                   <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex items-center justify-center">
                     <div className="relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 rounded-full blur-2xl"></div>
-                      <img 
-                        src={profilePhoto} 
-                        alt="Khiev Sokmesa" 
+                      <img
+                        src={profilePhoto}
+                        alt="Khiev Sokmesa"
                         className="relative w-48 h-48 rounded-full object-cover border-4 border-background shadow-lg"
                       />
                     </div>
                   </div>
-                  
+
                   {/* Introduction */}
                   <div className="p-8 md:p-12 flex flex-col justify-center">
                     <h2 className="text-3xl font-bold mb-4 text-foreground">Khiev Sokmesa</h2>
@@ -187,7 +187,7 @@ const Portfolio = () => {
                 Let's discuss how my experience can help bring your project to life.
               </p>
               <a
-                href="mailto:hello@techconsult.dev"
+                href="mailto:ksokmesa@gmail.com"
                 className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Get in Touch
