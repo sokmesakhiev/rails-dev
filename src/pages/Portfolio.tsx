@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Portfolio = () => {
   const experiences = [
@@ -90,6 +91,34 @@ const Portfolio = () => {
                 data platforms, and AI-powered applications.
               </p>
             </div>
+
+            {/* Profile Section */}
+            <Card className="mb-12 overflow-hidden border-2 animate-fade-in-up">
+              <CardContent className="p-0">
+                <div className="grid md:grid-cols-[300px,1fr] gap-0">
+                  {/* Photo */}
+                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 rounded-full blur-2xl"></div>
+                      <img 
+                        src={profilePhoto} 
+                        alt="Khiev Sokmesa" 
+                        className="relative w-48 h-48 rounded-full object-cover border-4 border-background shadow-lg"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Introduction */}
+                  <div className="p-8 md:p-12 flex flex-col justify-center">
+                    <h2 className="text-3xl font-bold mb-4 text-foreground">Khiev Sokmesa</h2>
+                    <div className="text-primary font-semibold mb-6 text-lg">Full-Stack Software Engineer & Technical Leader</div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      I am a high-level Full-Stack Software Engineer and technical leader with over 15 years of experience driving product success within fast-paced startup environments. I possess a complete set of expertise across the entire software development lifecycle, having architected and built mission-critical systems for various companies. My current focus as a Consultant at OnTheGoSystems is leveraging Ruby on Rails and ReactJS to develop a next-generation, AI-powered translation engine. Critically, my background includes leading the development of highly accurate solutions, such as property valuation APIs (Z1Data), and building core, high-stakes financial infrastructure, including a Payment Gateway and Processor at a major Payment Service Provider (Bongloy Payment PLC). I thrive on combining deep technical proficiency with strategic leadership, serving previously as a Scrum Master and mentor to ensure efficient, high-quality delivery across international teams.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
