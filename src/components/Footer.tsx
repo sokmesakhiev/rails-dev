@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+  const { t } = useTranslation();
+  
   return (
     <footer className="bg-secondary/30 border-t border-border py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,13 +12,13 @@ const Footer = () => {
               RailsDev
             </span>
             <p className="text-sm text-muted-foreground mt-2">
-              Ruby on Rails & ReactJS Experts
+              {t('footer.tagline')}
             </p>
           </div>
 
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} RailsDev. All rights reserved.
+              © {new Date().getFullYear()} RailsDev. {t('footer.rights')}
             </p>
           </div>
         </div>

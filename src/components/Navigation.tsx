@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const scrollToSection = (id: string) => {
     if (location.pathname !== "/") {
@@ -51,34 +54,35 @@ const Navigation = () => {
                 onClick={() => scrollToSection("home")}
                 className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Home
+                {t('nav.home')}
               </button>
               <button
                 onClick={() => scrollToSection("services")}
                 className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Services
+                {t('nav.services')}
               </button>
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                About Us
+                {t('nav.about')}
               </button>
               <button
                 onClick={() => handleNavigation("/portfolio")}
                 className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Portfolio
+                {t('nav.portfolio')}
               </button>
               <button
                 onClick={() => handleNavigation("/projects")}
                 className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Projects
+                {t('nav.projects')}
               </button>
+              <LanguageSwitcher />
               <Button onClick={() => scrollToSection("services")} className="ml-4">
-                Get Started
+                {t('nav.getStarted')}
               </Button>
             </div>
           </div>
@@ -104,34 +108,37 @@ const Navigation = () => {
               onClick={() => scrollToSection("home")}
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
-              Home
+              {t('nav.home')}
             </button>
             <button
               onClick={() => scrollToSection("services")}
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
-              Services
+              {t('nav.services')}
             </button>
             <button
               onClick={() => scrollToSection("about")}
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
-              About Us
+              {t('nav.about')}
             </button>
             <button
               onClick={() => handleNavigation("/portfolio")}
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
-              Portfolio
+              {t('nav.portfolio')}
             </button>
             <button
               onClick={() => handleNavigation("/projects")}
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
-              Projects
+              {t('nav.projects')}
             </button>
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
             <Button onClick={() => scrollToSection("services")} className="w-full mt-4">
-              Get Started
+              {t('nav.getStarted')}
             </Button>
           </div>
         </div>

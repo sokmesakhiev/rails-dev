@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Target, Heart } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
+  
   const values = [
     {
       icon: <Award className="h-8 w-8 text-primary" />,
@@ -30,17 +33,13 @@ const About = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            About Us
+            {t('about.title')}
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            We're a team of passionate developers and consultants specializing in Ruby on Rails
-            and ReactJS. With years of experience building web applications for startups and
-            enterprises, we bring technical excellence and business insight to every project.
+            {t('about.subtitle')}
           </p>
           <p className="text-lg text-muted-foreground">
-            Our mission is simple: help businesses succeed by building exceptional web applications
-            that are fast, scalable, and beautiful. We believe in clean code, modern practices,
-            and building long-term partnerships with our clients.
+            {t('about.description')}
           </p>
         </div>
 
@@ -62,15 +61,15 @@ const About = () => {
         </div>
 
         <div className="mt-16 max-w-4xl mx-auto bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center">
-          <h3 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h3>
+          <h3 className="text-3xl font-bold mb-4">{t('hero.cta')}</h3>
           <p className="text-lg text-muted-foreground mb-6">
-            Let's discuss how we can help bring your vision to life with Ruby on Rails and ReactJS.
+            {t('about.cta')}
           </p>
           <a
             href="mailto:ksokmesa@gmail.com"
             className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
           >
-            Get in Touch
+            {t('nav.getStarted')}
           </a>
         </div>
       </div>

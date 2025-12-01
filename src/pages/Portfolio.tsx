@@ -2,9 +2,12 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+  
   const experiences = [
     {
       title: "Senior Full-Stack Developer",
@@ -84,11 +87,10 @@ const Portfolio = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
               <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Portfolio & Experience
+                {t('portfolio.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                A track record of building scalable solutions across payment systems,
-                data platforms, and AI-powered applications.
+                {t('portfolio.subtitle')}
               </p>
             </div>
 
@@ -110,10 +112,10 @@ const Portfolio = () => {
 
                   {/* Introduction */}
                   <div className="p-8 md:p-12 flex flex-col justify-center">
-                    <h2 className="text-3xl font-bold mb-4 text-foreground">Khiev Sokmesa</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-foreground">{t('portfolio.intro.greeting')}</h2>
                     <div className="text-primary font-semibold mb-6 text-lg">Full-Stack Software Engineer & Technical Leader</div>
                     <p className="text-muted-foreground leading-relaxed">
-                      I am a high-level Full-Stack Software Engineer and technical leader with over 15 years of experience driving product success within fast-paced startup environments. I possess a complete set of expertise across the entire software development lifecycle, having architected and built mission-critical systems for various companies. My current focus as a Consultant at OnTheGoSystems is leveraging Ruby on Rails and ReactJS to develop a next-generation, AI-powered translation engine. Critically, my background includes leading the development of highly accurate solutions, such as property valuation APIs (Z1Data), and building core, high-stakes financial infrastructure, including a Payment Gateway and Processor at a major Payment Service Provider (Bongloy Payment PLC). I thrive on combining deep technical proficiency with strategic leadership, serving previously as a Scrum Master and mentor to ensure efficient, high-quality delivery across international teams.
+                      {t('portfolio.intro.description')}
                     </p>
                   </div>
                 </div>
@@ -155,9 +157,9 @@ const Portfolio = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div>
+                    <div>
                         <h4 className="text-sm font-semibold text-foreground mb-3">
-                          Achievements/Tasks
+                          {t('portfolio.experience.achievements')}
                         </h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, idx) => (

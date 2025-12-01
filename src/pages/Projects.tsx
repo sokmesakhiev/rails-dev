@@ -4,8 +4,11 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
+  const { t } = useTranslation();
+  
   const projects = [
     {
       title: "Private Translation Cloud (PTC)",
@@ -78,11 +81,10 @@ const Projects = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              My Projects
+              {t('projects.title')}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A collection of enterprise-level applications and systems I've architected and built
-              throughout my career, from payment infrastructure to AI-powered platforms.
+              {t('projects.subtitle')}
             </p>
           </div>
 
@@ -145,7 +147,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
+                            {t('projects.viewDemo')}
                           </a>
                         </Button>
                       )}
@@ -161,7 +163,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                           >
                             <Github className="w-4 h-4 mr-2" />
-                            Source Code
+                            {t('projects.viewCode')}
                           </a>
                         </Button>
                       )}
