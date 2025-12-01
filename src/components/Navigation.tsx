@@ -71,6 +71,12 @@ const Navigation = () => {
               >
                 Portfolio
               </button>
+              <button
+                onClick={() => handleNavigation("/projects")}
+                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Projects
+              </button>
               <Button onClick={() => scrollToSection("services")} className="ml-4">
                 Get Started
               </Button>
@@ -117,6 +123,12 @@ const Navigation = () => {
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
               Portfolio
+            </button>
+            <button
+              onClick={() => handleNavigation("/projects")}
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+            >
+              Projects
             </button>
             <Button onClick={() => scrollToSection("services")} className="w-full mt-4">
               Get Started
