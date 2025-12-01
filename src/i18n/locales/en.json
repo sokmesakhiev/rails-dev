@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "projects": "Projects",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "title": "Ruby on Rails & ReactJS Experts",
+    "subtitle": "Transform Your Ideas into Powerful Web Applications",
+    "description": "We specialize in building scalable, high-performance web applications using Ruby on Rails and ReactJS. From MVP to enterprise solutions, we deliver excellence.",
+    "cta": "Start Your Project"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Development Solutions",
+    "rails": {
+      "title": "Ruby on Rails Development",
+      "description": "Build robust, scalable backend systems with Ruby on Rails. From API development to full-stack applications, we deliver high-quality solutions."
+    },
+    "react": {
+      "title": "ReactJS Development",
+      "description": "Create dynamic, responsive user interfaces with ReactJS. We build modern web applications that provide exceptional user experiences."
+    },
+    "consulting": {
+      "title": "Technical Consulting",
+      "description": "Get expert guidance on architecture, performance optimization, and best practices. We help you make informed technical decisions."
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your Trusted Development Partner",
+    "description": "With years of experience in Ruby on Rails and ReactJS development, we're passionate about creating solutions that drive business success. Our team combines technical expertise with a deep understanding of modern web development best practices.",
+    "cta": "Learn More About Our Work"
+  },
+  "footer": {
+    "tagline": "Ruby on Rails & ReactJS Experts",
+    "rights": "All rights reserved."
+  },
+  "portfolio": {
+    "title": "My Portfolio",
+    "subtitle": "Professional Experience & Background",
+    "intro": {
+      "greeting": "I am Khiev Sokmesa",
+      "description": "a high-level Full-Stack Software Engineer and technical leader with over 15 years of experience driving product success within fast-paced startup environments. I possess a complete set of expertise across the entire software development lifecycle, having architected and built mission-critical systems for various companies. My current focus as a Consultant at OnTheGoSystems is leveraging Ruby on Rails and ReactJS to develop a next-generation, AI-powered translation engine. Critically, my background includes leading the development of highly accurate solutions, such as property valuation APIs (Z1Data), and building core, high-stakes financial infrastructure, including a Payment Gateway and Processor at a major Payment Service Provider (Bongloy Payment PLC). I thrive on combining deep technical proficiency with strategic leadership, serving previously as a Scrum Master and mentor to ensure efficient, high-quality delivery across international teams."
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "remote": "Remote",
+      "present": "Present",
+      "achievements": "Achievements/Tasks"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Featured Work & Accomplishments",
+    "company": "Company",
+    "year": "Year",
+    "technologies": "Technologies",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code"
+  }
+}

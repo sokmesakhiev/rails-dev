@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation();
+  
   const scrollToServices = () => {
     const element = document.getElementById("services");
     if (element) {
@@ -24,15 +27,14 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
-            Building Exceptional
+            {t('hero.title')}
             <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Digital Solutions
+              {t('hero.subtitle')}
             </span>
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
-            We specialize in Ruby on Rails and ReactJS development, delivering
-            scalable, high-performance web applications that drive business growth.
+            {t('hero.description')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
@@ -41,7 +43,7 @@ const Hero = () => {
               onClick={scrollToServices}
               className="group"
             >
-              Explore Our Services
+              {t('hero.cta')}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -49,7 +51,7 @@ const Hero = () => {
               variant="outline"
               onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Learn More
+              {t('nav.about')}
             </Button>
           </div>
         </div>

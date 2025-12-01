@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre Nosotros",
+    "portfolio": "Portafolio",
+    "projects": "Proyectos",
+    "getStarted": "Comenzar"
+  },
+  "hero": {
+    "title": "Expertos en Ruby on Rails y ReactJS",
+    "subtitle": "Transforme Sus Ideas en Aplicaciones Web Potentes",
+    "description": "Nos especializamos en construir aplicaciones web escalables y de alto rendimiento usando Ruby on Rails y ReactJS. Desde MVP hasta soluciones empresariales, entregamos excelencia.",
+    "cta": "Inicie Su Proyecto"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones de Desarrollo Integrales",
+    "rails": {
+      "title": "Desarrollo Ruby on Rails",
+      "description": "Construya sistemas backend robustos y escalables con Ruby on Rails. Desde desarrollo de API hasta aplicaciones full-stack, entregamos soluciones de alta calidad."
+    },
+    "react": {
+      "title": "Desarrollo ReactJS",
+      "description": "Cree interfaces de usuario dinámicas y responsivas con ReactJS. Construimos aplicaciones web modernas que brindan experiencias de usuario excepcionales."
+    },
+    "consulting": {
+      "title": "Consultoría Técnica",
+      "description": "Obtenga orientación experta sobre arquitectura, optimización de rendimiento y mejores prácticas. Le ayudamos a tomar decisiones técnicas informadas."
+    }
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Su Socio de Desarrollo Confiable",
+    "description": "Con años de experiencia en desarrollo de Ruby on Rails y ReactJS, nos apasiona crear soluciones que impulsen el éxito empresarial. Nuestro equipo combina experiencia técnica con una comprensión profunda de las mejores prácticas de desarrollo web moderno.",
+    "cta": "Conozca Más Sobre Nuestro Trabajo"
+  },
+  "footer": {
+    "tagline": "Expertos en Ruby on Rails y ReactJS",
+    "rights": "Todos los derechos reservados."
+  },
+  "portfolio": {
+    "title": "Mi Portafolio",
+    "subtitle": "Experiencia Profesional y Antecedentes",
+    "intro": {
+      "greeting": "Soy Khiev Sokmesa",
+      "description": "un Ingeniero de Software Full-Stack de alto nivel y líder técnico con más de 15 años de experiencia impulsando el éxito de productos en entornos de startups de ritmo acelerado. Poseo un conjunto completo de experiencia en todo el ciclo de vida del desarrollo de software, habiendo arquitecturado y construido sistemas de misión crítica para varias empresas. Mi enfoque actual como Consultor en OnTheGoSystems es aprovechar Ruby on Rails y ReactJS para desarrollar un motor de traducción de próxima generación impulsado por IA. Críticamente, mi experiencia incluye liderar el desarrollo de soluciones de alta precisión, como APIs de valoración de propiedades (Z1Data), y construir infraestructura financiera central de alto riesgo, incluida una Pasarela de Pago y Procesador en un importante Proveedor de Servicios de Pago (Bongloy Payment PLC). Me apasiona combinar la proficiencia técnica profunda con el liderazgo estratégico, habiendo servido previamente como Scrum Master y mentor para garantizar una entrega eficiente y de alta calidad en equipos internacionales."
+    },
+    "experience": {
+      "title": "Experiencia Profesional",
+      "remote": "Remoto",
+      "present": "Presente",
+      "achievements": "Logros/Tareas"
+    }
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "subtitle": "Trabajo Destacado y Logros",
+    "company": "Empresa",
+    "year": "Año",
+    "technologies": "Tecnologías",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código"
+  }
+}
