@@ -18,22 +18,67 @@
     "subtitle": "Comprehensive Development Solutions",
     "rails": {
       "title": "Ruby on Rails Development",
-      "description": "Build robust, scalable backend systems with Ruby on Rails. From API development to full-stack applications, we deliver high-quality solutions."
+      "description": "Build robust, scalable backend systems with Ruby on Rails. From MVPs to enterprise solutions, we create high-performance server-side applications.",
+      "features": {
+        "restfulApis": "RESTful APIs",
+        "databaseDesign": "Database Design",
+        "authentication": "Authentication",
+        "backgrounJobs": "Background Jobs",
+        "testing": "Testing & CI/CD"
+      }
     },
     "react": {
       "title": "ReactJS Development",
-      "description": "Create dynamic, responsive user interfaces with ReactJS. We build modern web applications that provide exceptional user experiences."
+      "description": "Create stunning, responsive user interfaces with React. We build modern SPAs that deliver exceptional user experiences across all devices.",
+      "features": {
+        "componentLibraries": "Component Libraries",
+        "stateManagement": "State Management",
+        "performanceOptimization": "Performance Optimization",
+        "modernTooling": "Modern Tooling"
+      }
     },
     "consulting": {
-      "title": "Technical Consulting",
-      "description": "Get expert guidance on architecture, performance optimization, and best practices. We help you make informed technical decisions."
+      "title": "Consulting & Training",
+      "description": "Empower your team with expert guidance. We offer consulting, code reviews, and training to help you make the most of Rails and React.",
+      "features": {
+        "architectureReview": "Architecture Review",
+        "bestPractices": "Best Practices",
+        "teamTraining": "Team Training",
+        "technicalAudits": "Technical Audits"
+      }
+    },
+    "fullstack": {
+      "title": "Full-Stack Solutions",
+      "description": "Seamlessly integrate Rails backends with React frontends. We deliver complete solutions that leverage the best of both technologies.",
+      "features": {
+        "apiIntegration": "API Integration",
+        "realTimeFeatures": "Real-Time Features",
+        "authenticationSecurity": "Authentication & Security",
+        "cloudDeployment": "Cloud Deployment"
+      }
     }
   },
   "about": {
     "title": "About Us",
     "subtitle": "Your Trusted Development Partner",
     "description": "With years of experience in Ruby on Rails and ReactJS development, we're passionate about creating solutions that drive business success. Our team combines technical expertise with a deep understanding of modern web development best practices.",
-    "cta": "Learn More About Our Work"
+    "cta": "Learn More About Our Work",
+    "excellence": {
+      "title": "Excellence",
+      "description": "We're committed to delivering top-tier solutions that exceed expectations."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "description": "We work closely with our clients as true partners in their success."
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "We stay ahead of the curve with cutting-edge technologies and practices."
+    },
+    "passion": {
+      "title": "Passion",
+      "description": "We love what we do and it shows in every project we deliver."
+    }
   },
   "footer": {
     "tagline": "Ruby on Rails & ReactJS Experts",
@@ -60,6 +105,11 @@
     "year": "Year",
     "technologies": "Technologies",
     "viewDemo": "View Demo",
-    "viewCode": "View Code"
+    "viewCode": "View Code",
+    "ptcDescription": "AI-powered translation engine designed for scalable and secure enterprise use. Integrated with large language models to enhance translation quality and system intelligence.",
+    "z1DataDescription": "Scalable application for automated property valuation with geospatial data integration. Built APIs for real estate data processing and elastic search optimization.",
+    "bongloyDescription": "Advanced payment gateway and processor for secure and reliable online transactions. Integrated with a wide range of payment systems, including Visa, Mastercard, and more.",
+    "vtenhDescription": "Full-stack e-commerce solution with backend API, customer-facing website, and admin dashboard for inventory and order management.",
+    "depotDescription": "Enterprise system for logistics and depot operations management. Led team implementation with stakeholder collaboration."
   }
 }

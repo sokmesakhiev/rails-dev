@@ -18,22 +18,68 @@
     "subtitle": "Soluciones de Desarrollo Integrales",
     "rails": {
       "title": "Desarrollo Ruby on Rails",
-      "description": "Construya sistemas backend robustos y escalables con Ruby on Rails. Desde desarrollo de API hasta aplicaciones full-stack, entregamos soluciones de alta calidad."
+      "description": "Construya sistemas backend robustos y escalables con Ruby on Rails. Desde desarrollo de API hasta aplicaciones full-stack, entregamos soluciones de alta calidad.",
+      "features": {
+        "restfulApis": "RESTful APIs",
+        "databaseDesign": "Diseño de Bases de Datos",
+        "authentication": "Autenticación",
+        "backgrounJobs": "Trabajos en Fondo",
+        "testing": "Pruebas & CI/CD"
+      }
     },
     "react": {
       "title": "Desarrollo ReactJS",
-      "description": "Cree interfaces de usuario dinámicas y responsivas con ReactJS. Construimos aplicaciones web modernas que brindan experiencias de usuario excepcionales."
+      "description": "Cree interfaces de usuario dinámicas y responsivas con ReactJS. Construimos aplicaciones web modernas que brindan experiencias de usuario excepcionales.",
+      "features": {
+        "componentLibraries": "Bibliotecas de Componentes",
+        "stateManagement": "Administración de Estado",
+        "performanceOptimization": "Optimización de Rendimiento",
+        "modernTooling": "Herramientas Modernas"
+      }
+
     },
     "consulting": {
-      "title": "Consultoría Técnica",
-      "description": "Obtenga orientación experta sobre arquitectura, optimización de rendimiento y mejores prácticas. Le ayudamos a tomar decisiones técnicas informadas."
+      "title": "Consultoria & Entrenamiento",
+      "description": "Capacita a tu equipo con la guía de expertos. Ofrecemos consultoría, revisiones de código y capacitación para ayudarte a sacar el máximo provecho de Rails y React.",
+      "features": {
+        "architectureReview": "Revisión de Arquitectura",
+        "bestPractices": "Prácticas de Mejoramiento",
+        "teamTraining": "Capacitación de Equipo",
+        "technicalAudits": "Revisión Tecnológica"
+      }
+    },
+    "fullstack": {
+      "title": "Soluciones Full-Stack",
+      "description": "Cree soluciones full-stack con Ruby on Rails y ReactJS. Desarrollamos aplicaciones web complejas que combinan backend y frontend.",
+      "features": {
+        "apiIntegration": "Integración de API",
+        "realTimeFeatures": "Características en Tiempo Real",
+        "authenticationSecurity": "Autenticación y Seguridad",
+        "cloudDeployment": "Despliegue en la Nube"
+      }
     }
   },
   "about": {
     "title": "Sobre Nosotros",
     "subtitle": "Su Socio de Desarrollo Confiable",
     "description": "Con años de experiencia en desarrollo de Ruby on Rails y ReactJS, nos apasiona crear soluciones que impulsen el éxito empresarial. Nuestro equipo combina experiencia técnica con una comprensión profunda de las mejores prácticas de desarrollo web moderno.",
-    "cta": "Conozca Más Sobre Nuestro Trabajo"
+    "cta": "Conozca Más Sobre Nuestro Trabajo",
+    "excellence": {
+      "title": "Excellence",
+      "description": "Nos comprometemos a entregar soluciones de primera clase que excedan las expectativas."
+    },
+    "collaboration": {
+      "title": "Colaboración",
+      "description": "Trabajamos de manera cercana con nuestros clientes como verdaderos socios de suxito."
+    },
+    "innovation": {
+      "title": "Innovación",
+      "description": "Nos mantenemos al frente de la curva con tecnologías y pr&aacute;cticas innovadoras."
+    },
+    "passion": {
+      "title": "Pasión",
+      "description": "Amamos lo que hacemos y lo mostramos en cada proyecto entregado."
+    }
   },
   "footer": {
     "tagline": "Expertos en Ruby on Rails y ReactJS",
@@ -60,6 +106,11 @@
     "year": "Año",
     "technologies": "Tecnologías",
     "viewDemo": "Ver Demo",
-    "viewCode": "Ver Código"
+    "viewCode": "Ver Código",
+    "ptcDescription": "Motor de traducción de máquina de aprendizaje integrado con modelos de lenguaje de alto rendimiento. Disenado para uso empresarial escalable y seguro.",
+    "z1DataDescription": "Aplicación escalable para lavaluación de propiedades con integración de datos geoespaciales. Construida APIs para el procesamiento de datos de propiedad y optimización de búsqueda.",
+    "bongloyDescription": "Pasarela de pago y procesador de transacciones seguras y fiables. Integrado con un amplio rango de sistemas de pago, incluyendo Visa, Mastercard y otros.",
+    "vtenhDescription": "Solución de e-commerce full-stack con API de backend, sitio web de clientes y panel de administración para gestión de inventario y gestión de pedidos.",
+    "depotDescription": "Sistema empresarial para la gestión de logística y operaciones de depósito. Liderado el equipo de implementación con colaboración con stakeholders."
   }
 }

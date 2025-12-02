@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const { t } = useTranslation();
-  
+
   const scrollToServices = () => {
     const element = document.getElementById("services");
     if (element) {

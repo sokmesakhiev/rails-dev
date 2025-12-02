@@ -4,27 +4,27 @@ import { useTranslation } from "react-i18next";
 
 const About = () => {
   const { t } = useTranslation();
-  
+
   const values = [
     {
       icon: <Award className="h-8 w-8 text-primary" />,
-      title: "Excellence",
-      description: "We're committed to delivering top-tier solutions that exceed expectations.",
+      title: t('about.excellence.title'),
+      description: t('about.excellence.description')
     },
     {
       icon: <Users className="h-8 w-8 text-accent" />,
-      title: "Collaboration",
-      description: "We work closely with our clients as true partners in their success.",
+      title: t('about.collaboration.title'),
+      description: t('about.collaboration.description')
     },
     {
       icon: <Target className="h-8 w-8 text-primary" />,
-      title: "Innovation",
-      description: "We stay ahead of the curve with cutting-edge technologies and practices.",
+      title: t('about.innovation.title'),
+      description: t('about.innovation.description')
     },
     {
       icon: <Heart className="h-8 w-8 text-accent" />,
-      title: "Passion",
-      description: "We love what we do and it shows in every project we deliver.",
+      title: t('about.passion.title'),
+      description: t('about.passion.description')
     },
   ];
 

@@ -18,22 +18,67 @@
     "subtitle": "Solutions de Développement Complètes",
     "rails": {
       "title": "Développement Ruby on Rails",
-      "description": "Construisez des systèmes backend robustes et évolutifs avec Ruby on Rails. Du développement d'API aux applications full-stack, nous livrons des solutions de haute qualité."
+      "description": "Construisez des systèmes backend robustes et évolutifs avec Ruby on Rails. Du développement d'API aux applications full-stack, nous livrons des solutions de haute qualité.",
+      "features": {
+        "restfulApis": "APIs RESTful",
+        "databaseDesign": "Design de Bases de Données",
+        "authentication": "Authentification",
+        "backgrounJobs": "Taches en Fond",
+        "testing": "Tests & CI/CD"
+      }
     },
     "react": {
       "title": "Développement ReactJS",
-      "description": "Créez des interfaces utilisateur dynamiques et réactives avec ReactJS. Nous construisons des applications web modernes qui offrent des expériences utilisateur exceptionnelles."
+      "description": "Créez des interfaces utilisateur dynamiques et réactives avec ReactJS. Nous construisons des applications web modernes qui offrent des expériences utilisateur exceptionnelles.",
+      "features": {
+        "componentLibraries": "Bibliothèques de Composants",
+        "stateManagement": "Gestion de l'Etat",
+        "performanceOptimization": "Optimisation du Rendu",
+        "modernTooling": "Outils Modernes"
+      }
     },
     "consulting": {
-      "title": "Conseil Technique",
-      "description": "Obtenez des conseils d'experts sur l'architecture, l'optimisation des performances et les meilleures pratiques. Nous vous aidons à prendre des décisions techniques éclairées."
+      "title": "Conseil et formation",
+      "description": "Donnez à votre équipe les moyens de maîtriser Rails et React grâce à notre expertise. Nous proposons des services de conseil, des revues de code et des formations pour vous aider à tirer le meilleur parti de Rails et React.",
+      "features": {
+        "architectureReview": "Revue d'Architecture",
+        "bestPractices": "Pratiques de Meilleure Performance",
+        "teamTraining": "Formation d'Equipe",
+        "technicalAudits": "Revue Technologique"
+      }
+    },
+    "fullstack": {
+      "title": "Solutions Full-Stack",
+      "description": "Créez des solutions full-stack avec Ruby on Rails et ReactJS. Nous concevons des applications web complexes qui combinent backend et frontend.",
+      "features": {
+        "apiIntegration": "Intégration API",
+        "realTimeFeatures": "Caractéristiques en temps reel",
+        "authenticationSecurity": "Authentification et Sécurité",
+        "cloudDeployment": "Deployment en nuage"
+      }
     }
   },
   "about": {
     "title": "À Propos de Nous",
     "subtitle": "Votre Partenaire de Développement de Confiance",
     "description": "Avec des années d'expérience dans le développement Ruby on Rails et ReactJS, nous sommes passionnés par la création de solutions qui favorisent le succès commercial. Notre équipe combine une expertise technique avec une compréhension approfondie des meilleures pratiques de développement web moderne.",
-    "cta": "En Savoir Plus Sur Notre Travail"
+    "cta": "En Savoir Plus Sur Notre Travail",
+    "excellence": {
+      "title": "Excellence",
+      "description": "Nous mettons l'accent sur la qualité et la performance de nos solutions."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "description": "Nous travaillons de maniere proche avec nos clients comme partenaires de leur successe."
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "Nous restons en avance de la courbe avec des technologies et pratiques innovantes."
+    },
+    "passion": {
+      "title": "Passion",
+      "description": "Nous amons ce que nous faisons et le montrons dans chaque projet livré."
+    }
   },
   "footer": {
     "tagline": "Experts Ruby on Rails et ReactJS",
@@ -60,6 +105,11 @@
     "year": "Année",
     "technologies": "Technologies",
     "viewDemo": "Voir la Démo",
-    "viewCode": "Voir le Code"
+    "viewCode": "Voir le Code",
+    "ptcDescription": "Moteur de traduction intelligent utilisant des modèles de langue larges pour améliorer la qualité de la traduction et l’intelligence du système. Intégré avec des modèles de langue larges.",
+    "z1DataDescription": "Application évolutive pour l'évaluation automatisée de biens immobiliers avec intégration de données géospatiales. Développement d'API pour le traitement de données immobilières et l'optimisation de recherche élastique.",
+    "bongloyDescription": "Passerelle et processeur de paiement avancés pour des transactions en ligne sécurisées et fiables. Intégration avec une large gamme de systèmes de paiement, incluant Visa, Mastercard, et plus encore.",
+    "vtenhDescription": "Solution e-commerce full-stack avec API backend, site web client, et tableau de bord administrateur pour la gestion des stocks et des commandes.",
+    "depotDescription": "Système d'entreprise pour la gestion de la logistique et des opérations de dépôt. Direction de l'implémentation en équipe avec collaboration des parties prenantes."
   }
 }

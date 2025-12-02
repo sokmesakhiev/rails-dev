@@ -8,15 +8,15 @@ import { useTranslation } from "react-i18next";
 
 const Projects = () => {
   const { t } = useTranslation();
-  
+
   const projects = [
     {
       title: "Private Translation Cloud (PTC)",
       url: 'https://ptc.wpml.org',
-      description: "AI-powered translation engine designed for scalable and secure enterprise use. Integrated with large language models to enhance translation quality and system intelligence.",
+      description: t('projects.ptcDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "LLM Integration", ""],
       company: "OnTheGoSystems",
-      year: "2023-2024",
+      year: "2023-2025",
       links: {
         demo: "",
         github: ""
@@ -25,7 +25,7 @@ const Projects = () => {
     {
       title: "Property Valuation Platform",
       url: "#",
-      description: "Scalable application for automated property valuation with geospatial data integration. Built APIs for real estate data processing and elastic search optimization.",
+      description: t('projects.z1DataDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Elasticsearch", "AWS", "ReactJS"],
       company: "Z1Data",
       year: "2021-2022",
@@ -36,8 +36,8 @@ const Projects = () => {
     },
     {
       title: "Payment Gateway & Processing Engine",
-      url: "#",
-      description: "Real-time payment gateway with direct card network integration. Built core infrastructure for transaction monitoring, authorization, settlement, and card management.",
+      url: "https://bongloy.asia/",
+      description: t('projects.bongloyDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Redis", "Card Networks API", "Android"],
       company: "Bongloy Payments PLC",
       year: "2018-2021",
@@ -47,9 +47,9 @@ const Projects = () => {
       }
     },
     {
-      title: "E-Commerce Platform",
+      title: "VTenh Ecommerce",
       url: "https://www.vtenh.com/",
-      description: "Full-stack e-commerce solution with backend API, customer-facing website, and admin dashboard for inventory and order management.",
+      description: t('projects.vtenhDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "PostgreSQL", "Stripe", "AWS"],
       company: "VTenh",
       year: "2021",
@@ -61,7 +61,7 @@ const Projects = () => {
     {
       title: "Depot Management System",
       url: "#",
-      description: "Enterprise system for logistics and depot operations management. Led team implementation with stakeholder collaboration.",
+      description: t('projects.depotDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "jQuery", "Bootstrap"],
       company: "CamSolution",
       year: "2017-2018",
@@ -175,7 +175,6 @@ const Projects = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );

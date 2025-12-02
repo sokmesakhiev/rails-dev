@@ -4,35 +4,53 @@ import { useTranslation } from "react-i18next";
 
 const Services = () => {
   const { t } = useTranslation();
-  
+
   const services = [
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
-      title: "Ruby on Rails Development",
-      description:
-        "Build robust, scalable backend systems with Ruby on Rails. From MVPs to enterprise solutions, we create high-performance server-side applications.",
-      features: ["RESTful APIs", "Database Design", "Background Jobs", "Testing & CI/CD"],
+      title: t("services.rails.title"),
+      description: t("services.rails.description"),
+      features: [
+        t("services.rails.features.restfulApis"),
+        t("services.rails.features.databaseDesign"),
+        t("services.rails.features.authentication"),
+        t("services.rails.features.backgrounJobs"),
+        t("services.rails.features.testing")
+      ]
     },
     {
       icon: <Layers className="h-10 w-10 text-accent" />,
-      title: "ReactJS Development",
-      description:
-        "Create stunning, responsive user interfaces with React. We build modern SPAs that deliver exceptional user experiences across all devices.",
-      features: ["Component Libraries", "State Management", "Performance Optimization", "Modern Tooling"],
+      title: t('services.react.title'),
+      description: t('services.react.description'),
+      features: [
+        t("services.react.features.componentLibraries"),
+        t("services.react.features.stateManagement"),
+        t("services.react.features.performanceOptimization"),
+        t("services.react.features.modernTooling")
+      ]
+
     },
     {
       icon: <Rocket className="h-10 w-10 text-primary" />,
-      title: "Full-Stack Solutions",
-      description:
-        "Seamlessly integrate Rails backends with React frontends. We deliver complete solutions that leverage the best of both technologies.",
-      features: ["API Integration", "Real-time Features", "Authentication & Security", "Cloud Deployment"],
+      title: t('services.fullstack.title'),
+      description: t('services.fullstack.description'),
+      features: [
+        t("services.fullstack.features.apiIntegration"),
+        t("services.fullstack.features.realTimeFeatures"),
+        t("services.fullstack.features.authenticationSecurity"),
+        t("services.fullstack.features.cloudDeployment")
+      ]
     },
     {
       icon: <Zap className="h-10 w-10 text-accent" />,
-      title: "Consulting & Training",
-      description:
-        "Empower your team with expert guidance. We offer consulting, code reviews, and training to help you make the most of Rails and React.",
-      features: ["Architecture Review", "Best Practices", "Team Training", "Technical Audits"],
+      title: t('services.consulting.title'),
+      description: t('services.consulting.description'),
+      features: [
+        t("services.consulting.features.architectureReview"),
+        t("services.consulting.features.bestPractices"),
+        t("services.consulting.features.teamTraining"),
+        t("services.consulting.features.technicalAudits")
+      ]
     },
   ];
 
