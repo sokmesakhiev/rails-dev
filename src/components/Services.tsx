@@ -73,7 +73,7 @@ const Services = () => {
               className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20"
             >
               <CardHeader>
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-4 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>

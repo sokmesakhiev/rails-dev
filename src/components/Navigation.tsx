@@ -87,9 +87,6 @@ const Navigation = () => {
                 {t('nav.articles', 'Articles')}
               </button>
               <LanguageSwitcher />
-              <Button onClick={() => scrollToSection("services")} className="ml-4">
-                {t('nav.getStarted')}
-              </Button>
             </div>
           </div>
 
@@ -149,9 +146,6 @@ const Navigation = () => {
             <div className="px-3 py-2">
               <LanguageSwitcher />
             </div>
-            <Button onClick={() => scrollToSection("services")} className="w-full mt-4">
-              {t('nav.getStarted')}
-            </Button>
           </div>
         </div>
       )}

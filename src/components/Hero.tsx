@@ -43,7 +43,7 @@ const Hero = () => {
               onClick={scrollToServices}
               className="group"
             >
-              {t('hero.cta')}
+              {t('hero.exploreServices')}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
