@@ -5,6 +5,7 @@
     "about": "À Propos",
     "portfolio": "Portfolio",
     "projects": "Projets",
+    "articles": "Articles",
     "getStarted": "Commencer"
   },
   "hero": {
@@ -111,5 +112,22 @@
     "bongloyDescription": "Passerelle et processeur de paiement avancés pour des transactions en ligne sécurisées et fiables. Intégration avec une large gamme de systèmes de paiement, incluant Visa, Mastercard, et plus encore.",
     "vtenhDescription": "Solution e-commerce full-stack avec API backend, site web client, et tableau de bord administrateur pour la gestion des stocks et des commandes.",
     "depotDescription": "Système d'entreprise pour la gestion de la logistique et des opérations de dépôt. Direction de l'implémentation en équipe avec collaboration des parties prenantes."
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Meilleures Pratiques et Perspectives",
+    "categories": {
+      "all": "Tous",
+      "rails": "Ruby on Rails",
+      "react": "ReactJS",
+      "fullstack": "Full-Stack",
+      "devops": "DevOps"
+    },
+    "minRead": "min de lecture",
+    "readMore": "Lire la Suite",
+    "backToArticles": "Retour aux Articles",
+    "notFound": "Article non trouvé",
+    "noArticles": "Aucun article trouvé dans cette catégorie.",
+    "tags": "Tags"
   }
 }
