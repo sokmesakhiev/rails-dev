@@ -80,6 +80,12 @@ const Navigation = () => {
               >
                 {t('nav.projects')}
               </button>
+              <button
+                onClick={() => handleNavigation("/articles")}
+                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                {t('nav.articles', 'Articles')}
+              </button>
               <LanguageSwitcher />
               <Button onClick={() => scrollToSection("services")} className="ml-4">
                 {t('nav.getStarted')}
@@ -133,6 +139,12 @@ const Navigation = () => {
               className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
               {t('nav.projects')}
+            </button>
+            <button
+              onClick={() => handleNavigation("/articles")}
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+            >
+              {t('nav.articles', 'Articles')}
             </button>
             <div className="px-3 py-2">
               <LanguageSwitcher />

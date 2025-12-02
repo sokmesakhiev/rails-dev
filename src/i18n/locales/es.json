@@ -5,6 +5,7 @@
     "about": "Sobre Nosotros",
     "portfolio": "Portafolio",
     "projects": "Proyectos",
+    "articles": "Artículos",
     "getStarted": "Comenzar"
   },
   "hero": {
@@ -112,5 +113,22 @@
     "bongloyDescription": "Pasarela de pago y procesador de transacciones seguras y fiables. Integrado con un amplio rango de sistemas de pago, incluyendo Visa, Mastercard y otros.",
     "vtenhDescription": "Solución de e-commerce full-stack con API de backend, sitio web de clientes y panel de administración para gestión de inventario y gestión de pedidos.",
     "depotDescription": "Sistema empresarial para la gestión de logística y operaciones de depósito. Liderado el equipo de implementación con colaboración con stakeholders."
+  },
+  "articles": {
+    "title": "Artículos",
+    "subtitle": "Mejores Prácticas y Perspectivas",
+    "categories": {
+      "all": "Todos",
+      "rails": "Ruby on Rails",
+      "react": "ReactJS",
+      "fullstack": "Full-Stack",
+      "devops": "DevOps"
+    },
+    "minRead": "min de lectura",
+    "readMore": "Leer Más",
+    "backToArticles": "Volver a Artículos",
+    "notFound": "Artículo no encontrado",
+    "noArticles": "No se encontraron artículos en esta categoría.",
+    "tags": "Etiquetas"
   }
 }
