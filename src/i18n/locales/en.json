@@ -5,6 +5,7 @@
     "about": "About Us",
     "portfolio": "Portfolio",
     "projects": "Projects",
+    "articles": "Articles",
     "getStarted": "Get Started"
   },
   "hero": {
@@ -111,5 +112,22 @@
     "bongloyDescription": "Advanced payment gateway and processor for secure and reliable online transactions. Integrated with a wide range of payment systems, including Visa, Mastercard, and more.",
     "vtenhDescription": "Full-stack e-commerce solution with backend API, customer-facing website, and admin dashboard for inventory and order management.",
     "depotDescription": "Enterprise system for logistics and depot operations management. Led team implementation with stakeholder collaboration."
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Best Practices & Insights",
+    "categories": {
+      "all": "All",
+      "rails": "Ruby on Rails",
+      "react": "ReactJS",
+      "fullstack": "Full-Stack",
+      "devops": "DevOps"
+    },
+    "minRead": "min read",
+    "readMore": "Read More",
+    "backToArticles": "Back to Articles",
+    "notFound": "Article not found",
+    "noArticles": "No articles found in this category.",
+    "tags": "Tags"
   }
 }
