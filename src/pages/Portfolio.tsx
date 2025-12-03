@@ -8,7 +8,7 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Portfolio = () => {
   const { t } = useTranslation();
-  
+
   const experiences = [
     {
       title: "Senior Full-Stack Developer",
@@ -113,33 +113,35 @@ const Portfolio = () => {
 
                   {/* Introduction */}
                   <div className="p-8 md:p-12 flex flex-col justify-center">
-                    <h2 className="text-3xl font-bold mb-4 text-foreground">{t('portfolio.intro.greeting')}</h2>
-                    <div className="text-primary font-semibold mb-6 text-lg">Full-Stack Software Engineer & Technical Leader</div>
+                    <h2 className="text-3xl font-bold mb-2 text-foreground">{t('portfolio.intro.greeting')}</h2>
+                    <div className="text-primary font-semibold mb-4 text-lg">Full-Stack Software Engineer & Technical Leader</div>
+                    <div className="mb-4 text-lg">
+                      <div className="flex flex-wrap gap-3">
+                        <Button asChild variant="outline" size="sm">
+                          <a href="https://www.linkedin.com/in/sokmesa-khiev-38a4b030/" target="_blank" rel="noopener noreferrer">
+                            <Linkedin className="h-4 w-4" />
+                            LinkedIn
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" size="sm">
+                          <a href="https://github.com/sokmesakhiev" target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4" />
+                            GitHub
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" size="sm">
+                          <a href="https://x.com/ksokmesa" target="_blank" rel="noopener noreferrer">
+                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                            X
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
                     <p className="text-muted-foreground leading-relaxed mb-6">
                       {t('portfolio.intro.description')}
                     </p>
-                    <div className="flex flex-wrap gap-3">
-                      <Button asChild variant="outline" size="sm">
-                        <a href="https://www.linkedin.com/in/sokmesa-khiev-38a4b030/" target="_blank" rel="noopener noreferrer">
-                          <Linkedin className="h-4 w-4" />
-                          LinkedIn
-                        </a>
-                      </Button>
-                      <Button asChild variant="outline" size="sm">
-                        <a href="https://github.com/sokmesakhiev" target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4" />
-                          GitHub
-                        </a>
-                      </Button>
-                      <Button asChild variant="outline" size="sm">
-                        <a href="https://x.com/ksokmesa" target="_blank" rel="noopener noreferrer">
-                          <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                          </svg>
-                          X
-                        </a>
-                      </Button>
-                    </div>
                   </div>
                 </div>
               </CardContent>
