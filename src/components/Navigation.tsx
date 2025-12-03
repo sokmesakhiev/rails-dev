@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
@@ -8,9 +8,37 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+
+  const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection("");
+      return;
+    }
+
+    const handleScroll = () => {
+      const sections = ["home", "services", "about"];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHomePage]);
 
   const scrollToSection = (id: string) => {
     if (location.pathname !== "/") {
@@ -27,12 +55,36 @@ const Navigation = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+    setActiveSection(id);
     setIsOpen(false);
   };
 
   const handleNavigation = (path: string) => {
     navigate(path);
+    setActiveSection("");
     setIsOpen(false);
+  };
+
+  const getNavClass = (sectionOrPath: string, isRoute = false) => {
+    const isActive = isRoute
+      ? location.pathname === sectionOrPath
+      : isHomePage && activeSection === sectionOrPath;
+    return `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+      isActive
+        ? "text-primary bg-primary/10"
+        : "text-foreground hover:text-primary"
+    }`;
+  };
+
+  const getMobileNavClass = (sectionOrPath: string, isRoute = false) => {
+    const isActive = isRoute
+      ? location.pathname === sectionOrPath
+      : isHomePage && activeSection === sectionOrPath;
+    return `block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
+      isActive
+        ? "text-primary bg-primary/10"
+        : "text-foreground hover:text-primary"
+    }`;
   };
 
   return (
@@ -52,37 +104,37 @@ const Navigation = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("home")}
               >
                 {t('nav.home')}
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("services")}
               >
                 {t('nav.services')}
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("about")}
               >
                 {t('nav.about')}
               </button>
               <button
                 onClick={() => handleNavigation("/portfolio")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("/portfolio", true)}
               >
                 {t('nav.portfolio')}
               </button>
               <button
                 onClick={() => handleNavigation("/projects")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("/projects", true)}
               >
                 {t('nav.projects')}
               </button>
               <button
                 onClick={() => handleNavigation("/articles")}
-                className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={getNavClass("/articles", true)}
               >
                 {t('nav.articles', 'Articles')}
               </button>
@@ -109,37 +161,37 @@ const Navigation = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-b border-border">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("home")}
             >
               {t('nav.home')}
             </button>
             <button
               onClick={() => scrollToSection("services")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("services")}
             >
               {t('nav.services')}
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("about")}
             >
               {t('nav.about')}
             </button>
             <button
               onClick={() => handleNavigation("/portfolio")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("/portfolio", true)}
             >
               {t('nav.portfolio')}
             </button>
             <button
               onClick={() => handleNavigation("/projects")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("/projects", true)}
             >
               {t('nav.projects')}
             </button>
             <button
               onClick={() => handleNavigation("/articles")}
-              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className={getMobileNavClass("/articles", true)}
             >
               {t('nav.articles', 'Articles')}
             </button>
