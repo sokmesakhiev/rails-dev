@@ -209,15 +209,15 @@ const Portfolio = () => {
             </div>
 
             <div className="mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center animate-fade-in-up delay-300">
-              <h3 className="text-3xl font-bold mb-4">Interested in Working Together?</h3>
+              <h3 className="text-3xl font-bold mb-4">{t('portfolio.interestedInWorkingTogether')}</h3>
               <p className="text-lg text-muted-foreground mb-6">
-                Let's discuss how my experience can help bring your project to life.
+                {t('portfolio.letDiscussYourProject')}
               </p>
               <a
                 href="mailto:ksokmesa@gmail.com"
                 className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
-                Get in Touch
+                {t('portfolio.getInTouch')}
               </a>
             </div>
           </div>
