@@ -95,7 +95,8 @@ const Navigation = () => {
             <img
               src={logo}
               alt="Rails Dev"
-              className="relative w-32"
+              className="relative w-32 cursor-pointer"
+              onClick={() => scrollToSection("home")}
             />
           </div>
 
