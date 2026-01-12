@@ -14,7 +14,7 @@ const Projects = () => {
       title: "Private Translation Cloud (PTC)",
       url: 'https://ptc.wpml.org',
       description: t('projects.ptcDescription'),
-      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "LLM Integration", ""],
+      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "AWS CloudWatch", "LLM Integration", "Python", "Tailwind"],
       company: "OnTheGoSystems",
       year: "2023-2025",
       links: {
