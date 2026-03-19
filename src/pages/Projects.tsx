@@ -105,11 +105,19 @@ const Projects = () => {
                   {/* Project Header */}
                   <div className="mb-4">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-foreground">
-                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                          {project.title}
-                        </a>
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage src={project.logo} alt={project.company} />
+                          <AvatarFallback className="text-xs bg-primary/10 text-primary">
+                            {project.company.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <h3 className="text-xl font-semibold text-foreground">
+                          <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                            {project.title}
+                          </a>
+                        </h3>
+                      </div>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span>{project.company}</span>
