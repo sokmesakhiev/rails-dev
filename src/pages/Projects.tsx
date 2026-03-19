@@ -56,6 +56,7 @@ const Projects = () => {
       description: t('projects.vtenhDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "PostgreSQL", "Stripe", "AWS"],
       company: "VTenh",
+      logo: "https://www.google.com/s2/favicons?domain=vtenh.com&sz=64",
       year: "2021",
       links: {
         demo: "",
