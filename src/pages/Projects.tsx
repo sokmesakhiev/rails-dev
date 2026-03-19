@@ -43,6 +43,7 @@ const Projects = () => {
       description: t('projects.bongloyDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Redis", "Card Networks API", "Android"],
       company: "Bongloy Payments PLC",
+      logo: "https://www.google.com/s2/favicons?domain=bongloy.asia&sz=64",
       year: "2018-2021",
       links: {
         demo: "",
