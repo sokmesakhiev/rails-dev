@@ -30,6 +30,7 @@ const Projects = () => {
       description: t('projects.z1DataDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Elasticsearch", "AWS", "ReactJS"],
       company: "Z1Data",
+      logo: "https://www.google.com/s2/favicons?domain=z1data.com&sz=64",
       year: "2021-2022",
       links: {
         demo: "",
