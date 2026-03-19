@@ -17,6 +17,7 @@ const Projects = () => {
       description: t('projects.ptcDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "AWS CloudWatch", "LLM Integration", "Python", "Tailwind"],
       company: "OnTheGoSystems",
+      logo: "https://www.google.com/s2/favicons?domain=onthegosystems.com&sz=64",
       year: "2023-2025",
       links: {
         demo: "",
