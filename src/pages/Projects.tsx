@@ -12,6 +12,19 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Certificate Verification",
+      url: "https://certificate-verification.sala.tech/",
+      description: t('projects.certificateVerificationDescription'),
+      technologies: ["NextJS", "Laravel", "TypeScript", "Identus Platform", "PostgreSQL", "MongoDB"],
+      company: "Sala Tech Digital Solutions Cambodia",
+      logo: "https://www.google.com/s2/favicons?domain=sala.tech&sz=64",
+      year: "2024-2025",
+      links: {
+        demo: "",
+        github: ""
+      }
+    },
+    {
       title: "Private Translation Cloud (PTC)",
       url: 'https://ptc.wpml.org',
       description: t('projects.ptcDescription'),

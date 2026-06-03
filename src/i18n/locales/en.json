@@ -115,7 +115,7 @@
     "z1DataDescription": "Scalable application for automated property valuation with geospatial data integration. Built APIs for real estate data processing and elastic search optimization.",
     "bongloyDescription": "Advanced payment gateway and processor for secure and reliable online transactions. Integrated with a wide range of payment systems, including Visa, Mastercard, and more.",
     "vtenhDescription": "Full-stack e-commerce solution with backend API, customer-facing website, and admin dashboard for inventory and order management.",
-    "depotDescription": "Enterprise system for logistics and depot operations management. Led team implementation with stakeholder collaboration."
+    "certificateVerificationDescription": "Certificate Verification is a platform that enables universities and similar institutions to issue, manage, and verify digital academic credentials, such as diplomas, degrees, and course completion certificates. Supports students, registrars, and third-party verifiers via secure links and QR codes.",
   },
   "articles": {
     "title": "Articles",
