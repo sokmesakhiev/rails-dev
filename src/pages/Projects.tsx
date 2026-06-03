@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ExternalLink, Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -16,6 +17,7 @@ const Projects = () => {
       description: t('projects.ptcDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "AWS CloudWatch", "LLM Integration", "Python", "Tailwind"],
       company: "OnTheGoSystems",
+      logo: "https://www.google.com/s2/favicons?domain=onthegosystems.com&sz=64",
       year: "2023-2025",
       links: {
         demo: "",
@@ -28,6 +30,7 @@ const Projects = () => {
       description: t('projects.z1DataDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Elasticsearch", "AWS", "ReactJS"],
       company: "Z1Data",
+      logo: "https://www.google.com/s2/favicons?domain=z1data.com&sz=64",
       year: "2021-2022",
       links: {
         demo: "",
@@ -40,6 +43,7 @@ const Projects = () => {
       description: t('projects.bongloyDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Redis", "Card Networks API", "Android"],
       company: "Bongloy Payments PLC",
+      logo: "https://www.google.com/s2/favicons?domain=bongloy.asia&sz=64",
       year: "2018-2021",
       links: {
         demo: "",
@@ -52,6 +56,7 @@ const Projects = () => {
       description: t('projects.vtenhDescription'),
       technologies: ["Ruby on Rails", "ReactJS", "PostgreSQL", "Stripe", "AWS"],
       company: "VTenh",
+      logo: "https://www.google.com/s2/favicons?domain=vtenh.com&sz=64",
       year: "2021",
       links: {
         demo: "",
@@ -64,6 +69,7 @@ const Projects = () => {
       description: t('projects.depotDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "jQuery", "Bootstrap"],
       company: "CamSolution",
+      logo: "https://www.google.com/s2/favicons?domain=camsolution.com&sz=64",
       year: "2017-2018",
       links: {
         demo: "",
@@ -99,11 +105,19 @@ const Projects = () => {
                   {/* Project Header */}
                   <div className="mb-4">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-foreground">
-                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                          {project.title}
-                        </a>
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-8 w-8">
+                          <AvatarImage src={project.logo} alt={project.company} />
+                          <AvatarFallback className="text-xs bg-primary/10 text-primary">
+                            {project.company.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <h3 className="text-xl font-semibold text-foreground">
+                          <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                            {project.title}
+                          </a>
+                        </h3>
+                      </div>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span>{project.company}</span>
