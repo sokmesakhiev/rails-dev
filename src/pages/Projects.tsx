@@ -15,10 +15,10 @@ const Projects = () => {
       title: "Certificate Verification",
       url: "https://certificate-verification.sala.tech/",
       description: t('projects.certificateVerificationDescription'),
-      technologies: ["NextJS", "Laravel", "TypeScript", "Identus Platform", "PostgreSQL", "MongoDB"],
+      technologies: ["NextJS", "Laravel", "TypeScript", "Identus Platform", "PostgreSQL", "MongoDB", "Verifiable Credentials", "Cardano", "W3C"],
       company: "Sala Tech Digital Solutions Cambodia",
       logo: "https://www.google.com/s2/favicons?domain=sala.tech&sz=64",
-      year: "2024-2025",
+      year: "2025-2026",
       links: {
         demo: "",
         github: ""
