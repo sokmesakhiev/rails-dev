@@ -14,7 +14,7 @@ const Portfolio = () => {
       title: "Interim CTO",
       company: "Sala Tech Digital Solutions Cambodia",
       location: "Phnom Penh, Cambodia",
-      period: "2024 - Present",
+      period: "03/2026 - Present",
       type: "Digital Solutions",
       achievements: [
         "Led technology strategy and aligned product direction with company growth objectives.",
@@ -30,7 +30,7 @@ const Portfolio = () => {
       title: "Senior Full-Stack Developer",
       company: "OnTheGoSystems",
       location: "Remote - Europe",
-      period: "11/2022 - Present",
+      period: "11/2022 - 03/2026",
       type: "Software Company",
       achievements: [
         "Led the development of the Private Translation Cloud (PTC), an AI-powered translation engine designed for scalable and secure enterprise use.",
