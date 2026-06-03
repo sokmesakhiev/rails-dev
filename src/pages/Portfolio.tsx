@@ -11,6 +11,22 @@ const Portfolio = () => {
 
   const experiences = [
     {
+      title: "Interim CTO",
+      company: "Sala Tech Digital Solutions Cambodia",
+      location: "Phnom Penh, Cambodia",
+      period: "2024 - Present",
+      type: "Digital Solutions",
+      achievements: [
+        "Led technology strategy and aligned product direction with company growth objectives.",
+        "Partnered with CEO on business planning, revenue strategy, and operational scaling.",
+        "Established a clear technical vision and execution roadmap to support long-term growth.",
+        "Strengthened engineering leadership, delivery governance, and performance standards.",
+        "Assessed organizational capability and defined scalable team structure.",
+        "Prepared technical strategy and risk framework for investor engagement and due diligence.",
+        "Reduced technology and operational risk to support sustainable expansion.",
+      ],
+    },
+    {
       title: "Senior Full-Stack Developer",
       company: "OnTheGoSystems",
       location: "Remote - Europe",
