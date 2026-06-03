@@ -116,7 +116,8 @@
     "z1DataDescription": "Aplicación escalable para lavaluación de propiedades con integración de datos geoespaciales. Construida APIs para el procesamiento de datos de propiedad y optimización de búsqueda.",
     "bongloyDescription": "Pasarela de pago y procesador de transacciones seguras y fiables. Integrado con un amplio rango de sistemas de pago, incluyendo Visa, Mastercard y otros.",
     "vtenhDescription": "Solución de e-commerce full-stack con API de backend, sitio web de clientes y panel de administración para gestión de inventario y gestión de pedidos.",
-    "certificateVerificationDescription": "Certificate Verification es una plataforma que permite a universidades y similares emitir, gestionar y verificar credenciales académicas digitales, como diplomas, títulos y certificados de finalización de cursos. Admite estudiantes, registradores y verificadores de terceros a través de enlaces seguros y códigos QR.",
+    "depotDescription": "Sistema empresarial para la gestión de logística y operaciones de depósito. Liderado el equipo de implementación con colaboración con stakeholders.",
+    "certificateVerificationDescription": "Certificate Verification es una plataforma que permite a universidades y similares emitir, gestionar y verificar credenciales académicas digitales, como diplomas, títulos y certificados de finalización de cursos. Admite estudiantes, registradores y verificadores de terceros a través de enlaces seguros y códigos QR."
   },
   "articles": {
     "title": "Artículos",
