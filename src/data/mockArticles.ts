@@ -346,4 +346,328 @@ Start simple and add complexity only when needed. Most apps work fine with useSt
     category: 'react',
     tags: ['ReactJS', 'State Management', 'Frontend', 'Architecture'],
   },
+  {
+    id: '6',
+    title: 'Digital Diplomas You Can Trust',
+    excerpt: 'Verifiable Credentials and Cardano for University Certificate Issuance',
+    content: `
+# **How a modern certificate platform lets universities issue tamper-evident credentials, puts control in the student’s wallet, and lets employers verify authenticity in seconds—without faxing the registrar.**
+
+---
+
+## The problem universities still face
+
+Paper diplomas and static PDFs are easy to copy, slow to verify, and expensive to use across borders. When an employer in Germany or an admissions office in another country receives a degree from Bosnia and Herzegovina or the Western Balkans, verification often means:
+
+- Emailing the registrar and waiting days or weeks
+- Paying for notarization, translation, or apostille
+- Trusting a scanned image with no cryptographic proof of origin
+
+The **Certificate Verification** platform addresses this by combining **W3C Verifiable Credentials (VCs)** for cryptographic trust with **Cardano** for an optional, privacy-preserving audit trail on a public blockchain.
+
+---
+
+## What Verifiable Credentials add
+
+A **Verifiable Credential** is a digitally signed statement—like a diploma—that a **verifier** can check mathematically without calling the issuer every time.
+
+Think of it as three roles:
+
+| Role | In this project | Example |
+|------|-----------------|---------|
+| **Issuer** | University (registrar) | "Jane Doe earned a BSc in Computer Science in 2026." |
+| **Holder** | Student / graduate | Keeps the credential in a digital wallet |
+| **Verifier** | Employer, admissions office, public QR scan | Checks signature, schema, and revocation status |
+
+Each party has a **Decentralized Identifier (DID)**—a cryptographic identity. The university's DID ('did:prism:…') is bound to keys used to sign credentials. If someone alters the credential after issuance, the signature breaks and verification fails.
+
+The platform supports **diplomas**, **transcripts**, and **course certificates**, each with a registered JSON Schema on the **Hyperledger Identus** issuer agent so credentials follow a consistent, machine-readable structure.
+
+### Why this is better than "just a PDF"
+
+| Traditional PDF | Verifiable Credential |
+|-----------------|----------------------|
+| Anyone can edit in Photoshop | Tampering breaks the cryptographic proof |
+| Verifier must contact the university | Verifier checks signature + status list instantly |
+| Student sends the full document every time | Student can share selectively (e.g. degree without GPA) |
+| Revocation is manual and opaque | Revocation uses **W3C StatusList2021**—a standard, checkable status bit |
+
+---
+
+## What Cardano adds (without putting student data on-chain)
+
+Cardano does **not** store names, grades, or diploma text on the blockchain. That would be a privacy risk and unnecessary.
+
+Instead, the platform writes a **fingerprint** of the credential—a **SHA-256 hash**—into Cardano transaction metadata using **CIP-674** (label '674'). The on-chain record typically includes:
+
+- **'h'** — hash of the credential (fingerprint)
+- **'i'** — issuer DID (who attested it)
+- **'t'** — timestamp
+
+So Cardano provides:
+
+1. **Immutability** — Once anchored, the fingerprint cannot be changed without a new transaction.
+2. **Independent audit** — Anyone with the credential can check whether the same hash was recorded on-chain.
+3. **Privacy by design** — Personal data stays in the university database and in the student's wallet; the chain only holds a hash.
+
+Cardano access is via **Blockfrost**; the **Connector** service builds and submits anchor transactions. This is complementary to VC signatures: the VC proves *who issued it*; the anchor proves *this exact credential existed at a point in time* on a public ledger.
+
+---
+## How the platform is built (at a glance)
+
+The system is split into clear layers:
+
+\`\`\`mermaid
+flowchart LR
+  subgraph people["People"]
+    REG[Registrar]
+    STU[Student]
+    EMP[Employer]
+  end
+
+  subgraph platform["Certificate Verification Platform"]
+    UI[Next.js Portal]
+    API[Backend API]
+    CONN[Connector]
+  end
+
+  subgraph trust["Trust layer"]
+    IDENTUS[Identus Issuer Agent]
+    PRISM[PRISM Node]
+    MED[Mediator]
+    CARDANO[Cardano]
+  end
+
+  REG --> UI --> API --> CONN
+  STU --> UI
+  STU -->|DIDComm wallet| MED
+  EMP --> UI --> API
+  CONN --> IDENTUS --> PRISM
+  CONN --> CARDANO
+  IDENTUS --> MED
+\`\`\`
+
+- **Frontend (Next.js)** — Admin, registrar, student portal, public verification pages. It never talks to the Connector directly; everything goes through the API.
+- **Backend API** — Business logic, users, certificates, credentials, queues, audit. Sole owner of the application database.
+- **Connector (TypeScript/Bun)** — Signs and verifies VCs, manages revocation lists, proxies Identus, anchors hashes on Cardano.
+- **Identus stack** — Issuer agent, PRISM Node ('did:prism'), DIDComm mediator for student wallets.
+- **PostgreSQL** — Application data; separate databases for Identus agents.
+
+This separation keeps **university business data** in the API and **cryptographic operations** in the Connector and Identus agents.
+
+---
+
+## End-to-end process flows
+
+### 1. One-time setup: university identity and schemas
+
+Before issuing credentials at scale, operators bootstrap the Identus infrastructure:
+
+1. Start Docker services (Postgres, PRISM Node, issuer agent, mediator).
+2. Run **'01-init-university-did.sh'** — Creates and publishes the university's 'did:prism' on the ledger.
+3. Run **'02-register-diploma-schema.sh'** (and transcript/course scripts) — Registers credential schemas with the issuer agent.
+
+The university now has a resolvable issuer DID and schema IDs the system uses when building credential offers.
+
+See [IDENTUS_INFRASTRUCTURE_SETUP.md](../infrastructure/IDENTUS_INFRASTRUCTURE_SETUP.md) for full bootstrap steps.
+
+---
+
+### 2. Student wallet connection (before issuance)
+
+For wallet-based issuance, the student connects once in the **Student Portal**:
+
+\`\`\`mermaid
+sequenceDiagram
+    participant S as Student
+    participant Portal as Student Portal
+    participant API as Backend API
+    participant Conn as Connector
+    participant Agent as Issuer Agent
+    participant Med as Mediator
+
+    S->>Portal: Open wallet / connect
+    Portal->>API: Request holder connection
+    API->>Conn: Create DIDComm invitation
+    Conn->>Agent: Invitation
+    S->>Portal: Accept (Identus Edge Agent SDK)
+    Portal->>Med: DIDComm handshake
+    Agent->>Med: Route to student
+    Portal->>API: Save identus_connection_id
+\`\`\`
+
+After this, the university can send **credential offers** to that student over DIDComm—even when the browser was offline earlier (the **mediator** stores and forwards messages).
+
+---
+
+### 3. Certificate issuance (registrar flow)
+
+When a registrar clicks **Issue** on a certificate, the API chooses one of three paths:
+
+\`\`\`mermaid
+flowchart TD
+  START[Registrar issues certificate] --> CHECK{Student has wallet connection<br/>and schema configured?}
+
+  CHECK -->|Yes| A[Path A: Identus wallet]
+  CHECK -->|No, but issuer DID exists| B[Path B: Legacy VC + anchor]
+  CHECK -->|No| C[Path C: PDF only]
+
+  A --> PDF1[Generate PDF]
+  PDF1 --> OFFER[Send JWT credential offer]
+  OFFER --> ACCEPT[Student accepts in wallet]
+  ACCEPT --> VERIFY[Promote to verified]
+  VERIFY --> ANCHOR1[Optional Cardano anchor]
+
+  B --> PDF2[Generate PDF]
+  PDF2 --> SIGN[Sign JSON-LD VC + StatusList]
+  SIGN --> ANCHOR2[Cardano anchor]
+
+  C --> PDF3[Generate PDF only]
+\`\`\`
+
+#### Path A — Identus wallet (primary, modern flow)
+
+This is the intended production path when the student has connected their wallet.
+
+| Step | What happens |
+|------|----------------|
+| 1 | Registrar issues certificate via admin UI → API creates a **Credential** ('pending'). |
+| 2 | Queue worker generates the **PDF** and stores its URL on the credential. |
+| 3 | **IssueIdentusCredentialOfferAfterPdf** calls the Connector → Issuer agent creates a **JWT credential offer** (diploma / transcript / course schema). |
+| 4 | Offer is delivered to the student wallet via **DIDComm** and the mediator. |
+| 5 | Student **accepts** the credential in the Student Portal (Identus Edge Agent SDK). |
+| 6 | **PromoteCredentialToVerifiedJob** polls the agent until state is 'CredentialSent' or 'Done'. |
+| 7 | Credential and certificate move to **'verified'**. |
+| 8 | Optionally, **QueueBlockchainAnchorAfterPdf** writes the credential hash to **Cardano**. |
+
+Status progression:
+
+\`\`\`
+pending → (wallet accepts offer) → verified → (optional) anchored on Cardano
+\`\`\`
+
+Important detail: on this path, **blockchain anchoring often runs after the student accepts the credential**, not the instant the registrar clicks Issue. That way the anchored fingerprint corresponds to the fully issued, wallet-held credential.
+
+#### Path B — Legacy Connector + anchor
+
+Used when there is no wallet connection but the institution has an issuer DID configured in the Connector:
+
+- Build and sign a **JSON-LD Verifiable Credential** with **Ed25519Signature2020**
+- Assign a **StatusList2021** revocation index
+- Anchor hash on Cardano via the Connector
+- Store issued credential metadata in Connector storage
+
+#### Path C — PDF only
+
+If no issuer DID and no wallet connection: the platform still generates the official PDF, but skips VC signing and blockchain anchoring ('skipped_no_issuer_did').
+
+---
+
+### 4. Verification (employer or public)
+
+Verification answers: *Is this credential structurally valid, signed by the university, not revoked, and optionally anchored on Cardano?*
+
+\`\`\`mermaid
+sequenceDiagram
+    participant V as Verifier
+    participant UI as Verification UI
+    participant API as Backend API
+    participant Conn as Connector
+
+    V->>UI: Scan QR or open link
+    UI->>API: GET credential / POST verification
+    API->>Conn: Verify VC
+    Conn->>Conn: Check schema + signature
+    Conn->>Conn: Check StatusList2021 (revoked?)
+    Conn->>Conn: Optional Cardano hash lookup
+    Conn-->>API: valid / invalid / revoked
+    API-->>UI: Result + metadata
+    UI-->>V: Instant authenticity result
+\`\`\`
+
+Checks performed:
+
+| Check | Meaning |
+|-------|---------|
+| **Schema** | Required VC fields present; issuer DID valid |
+| **Signature** | Proof matches university keys |
+| **Revocation** | StatusList bit not set (credential not revoked) |
+| **Cardano anchor** | Advisory: hash found on-chain with matching issuer DID |
+
+The employer does **not** need access to the university's internal database. Trust comes from cryptography and, optionally, the public ledger.
+
+---
+
+### 5. Revocation
+
+If a credential must be withdrawn (fraud, error, degree annulment):
+
+1. Registrar revokes in the admin portal → API → Connector.
+2. Connector flips the credential's bit on the **StatusList2021**.
+3. Future verifications fail the revocation check.
+4. Optional on-chain revocation metadata can be recorded for audit.
+
+Revocation is as important as issuance for long-term trust.
+
+---
+
+## Benefits by stakeholder
+
+### For the university
+
+- **Standard-aligned issuance** (W3C VC, StatusList2021, DIDs)
+- **Registrar workflow unchanged in spirit**—issue from the same admin portal, with automation behind the scenes
+- **Revocation and audit trail** without maintaining a custom verification hotline for every employer
+- **Cross-border readiness**—cryptographic proofs reduce reliance on paper chains of trust
+
+### For students
+
+- **Credentials in a wallet**, not only email attachments
+- **Selective disclosure**—share what is needed (e.g. proof of degree without full transcript)
+- **Faster job and mobility applications**—share a QR or link instead of waiting for registrar letters
+
+### For employers and institutions
+
+- **Seconds, not weeks**—verify from a QR code or URL
+- **Tamper detection**—altered documents fail signature verification
+- **Revocation awareness**—withdrawn credentials show as invalid
+
+---
+
+## Privacy and design principles
+
+The platform is built around a few non-negotiable rules:
+
+1. **No personal data on Cardano** — only hashes and issuer DIDs.
+2. **API owns business data; Connector owns crypto** — clean security boundaries.
+3. **Frontend never calls the Connector directly** — all integration goes through authenticated API routes.
+4. **Wallet interoperability** — Identus agent, DIDComm, and registered schemas support portable credentials.
+5. **Dual paths** — modern wallet issuance plus legacy signing for institutions still onboarding wallet connectivity.
+
+---
+
+## Geographic and policy context
+
+The project targets universities in **Bosnia and Herzegovina** and the **Western Balkans**, with **EU and international verification** in mind. In regions where paper credentials still dominate and cross-border recognition is costly, VCs plus optional Cardano anchoring offer:
+
+- Instant verification for diaspora and remote hiring
+- Reduced fraud from forged scans
+- A path toward **digital credential ecosystems** aligned with global W3C and wallet standards—not a proprietary lock-in format
+
+---
+
+## Conclusion
+
+**Verifiable Credentials** give universities a way to issue credentials that are **cryptographically authentic** and **instantly checkable**. **Cardano** adds an optional **immutable fingerprint** on a public ledger—without exposing student personal data.
+
+Together, they turn certificate issuance from a document-delivery problem into a **trust infrastructure** problem: the registrar still decides who graduates, the student holds the proof, and verifiers can confirm authenticity in seconds.
+
+The Certificate Verification platform implements this full loop—from PRISM DIDs and Identus wallet offers, through PDF generation and StatusList revocation, to Blockfrost-backed anchoring on Cardano—so universities can modernize credentials without sacrificing privacy or control.
+    `,
+    author: 'Khiev Sokmesa',
+    publishedAt: '2026-06-04',
+    readTime: 11,
+    category: 'fullstack',
+    tags: ['TypeScript', 'W3C', 'Verifiable Credentials', 'Cardano', 'Blockchain'],
+  },
 ];
