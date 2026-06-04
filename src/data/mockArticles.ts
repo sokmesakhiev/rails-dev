@@ -663,6 +663,14 @@ The project targets universities in **Bosnia and Herzegovina** and the **Western
 Together, they turn certificate issuance from a document-delivery problem into a **trust infrastructure** problem: the registrar still decides who graduates, the student holds the proof, and verifiers can confirm authenticity in seconds.
 
 The Certificate Verification platform implements this full loop—from PRISM DIDs and Identus wallet offers, through PDF generation and StatusList revocation, to Blockfrost-backed anchoring on Cardano—so universities can modernize credentials without sacrificing privacy or control.
+
+---
+
+## Alternative titles
+
+1. *Verifiable Credentials on Cardano: How Universities Issue Trustworthy Digital Diplomas*
+2. *From Registrar to Blockchain Fingerprint: Modern Certificate Issuance Explained*
+3. *Instant Degree Verification: W3C Verifiable Credentials and Cardano for Higher Education*
     `,
     author: 'Khiev Sokmesa',
     publishedAt: '2026-06-04',
