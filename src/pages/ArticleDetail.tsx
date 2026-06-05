@@ -51,16 +51,12 @@ const ArticleDetail = () => {
   };
 
   // Custom component for Mermaid diagrams
-<<<<<<< HEAD
   const MermaidComponent = ({ node }: { node: MermaidNode }) => {
-=======
-  const MermaidComponent = ({ node }: any) => {
->>>>>>> c9d2eb7 (add certificate verification article)
+
     const diagramRef = useRef<HTMLDivElement>(null);
     const diagramId = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
 
     useEffect(() => {
-<<<<<<< HEAD
       if (diagramRef.current && node.children && node.children[0]) {
         const firstChild = node.children[0] as { value?: string };
         if (firstChild.value) {
@@ -74,18 +70,7 @@ const ArticleDetail = () => {
               console.error('Mermaid rendering error:', err);
             });
         }
-=======
-      if (diagramRef.current) {
-        mermaid.render(diagramId, node.children[0].value)
-          .then((result: any) => {
-            if (diagramRef.current) {
-              diagramRef.current.innerHTML = result.svg;
-            }
-          })
-          .catch((err: any) => {
-            console.error('Mermaid rendering error:', err);
-          });
->>>>>>> c9d2eb7 (add certificate verification article)
+
       }
     }, [node, diagramId]);
 
@@ -183,20 +168,13 @@ const ArticleDetail = () => {
                   th: ({ children }) => <th className="p-3 text-left font-semibold">{children}</th>,
                   td: ({ children }) => <td className="p-3">{children}</td>,
                   hr: () => <hr className="my-8 border-border" />,
-<<<<<<< HEAD
                   code: ({ node, inline, className, children, ...props }: CodeComponentProps) => {
-=======
-                  code({ node, inline, className, children, ...props }: any) {
->>>>>>> c9d2eb7 (add certificate verification article)
+
                     const match = /language-(\w+)/.exec(className || '');
                     const language = match ? match[1] : '';
 
                     if (language === 'mermaid') {
-<<<<<<< HEAD
                       return <MermaidComponent node={node as MermaidNode} />;
-=======
-                      return <MermaidComponent node={node} />;
->>>>>>> c9d2eb7 (add certificate verification article)
                     }
 
                     return !inline ? (
@@ -211,11 +189,7 @@ const ArticleDetail = () => {
                       </code>
                     );
                   },
-<<<<<<< HEAD
                 } as Partial<Components>}
-=======
-                }}
->>>>>>> c9d2eb7 (add certificate verification article)
               >
                 {article.content}
               </ReactMarkdown>

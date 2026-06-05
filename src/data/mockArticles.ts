@@ -678,4 +678,59 @@ The Certificate Verification platform implements this full loop—from PRISM DID
     category: 'fullstack',
     tags: ['TypeScript', 'W3C', 'Verifiable Credentials', 'Cardano', 'Blockchain'],
   },
+  {
+    id: '7',
+    title: 'Dashboard & Reporting System (DRS)',
+    excerpt: 'Compare different state management solutions and learn when to use each one in your React projects.',
+    content: `
+The **Dashboard & Reporting System (DRS)** is an enterprise-grade analytics and business intelligence platform designed to centralize, process, and visualize real-time operational data across fragmented institutional ecosystems. Built to transform complex transactional records into actionable organizational insight, DRS serves as the single source of truth for students, academic staff, and executive leadership.
+
+By integrating seamlessly with core modules like the **Admission Management System (AMS)** and the **Document Tracking System (DTS)**, the system eliminates administrative silos, automates compliance monitoring, and tracks long-term institutional goals through a sophisticated, multi-level KPI governance framework.
+
+---
+
+### 🚀 Key Architectural & Functional Pillars
+
+#### 📊 Multi-Tenant, Role-Based Analytics
+DRS delivers customized, permission-scoped dashboards designed for different operational layers, ensuring data visibility complies strictly with institutional governance:
+* **Executive & Planning Office:** Access to high-level strategic monitoring, 10-year KPI trend lines, SLA bottlenecks, and institutional workload distribution.
+* **Operational Staff:** Actionable task queues showcasing pending document reviews, application statuses, and processing turnaround times.
+* **Students:** A transparency-focused portal detailing real-time application tracking, document request updates, and payment invoicing statuses.
+
+#### 📈 Advanced KPI & Strategic Monitoring Engine
+Moving beyond simple metrics, DRS introduces a hierarchical target-tracking engine:
+* Supports multi-level KPI structures (Parent-to-Sub-KPI mapping) aligned with long-term strategic plans.
+* Enforces a multi-stage data validation workflow where data entry from individual departments must be reviewed, validated, and finalized by a central Planning Office.
+* Automates actual-vs-target comparisons across diverse metric types (counts, percentages, ratios) with built-in data anomaly alerts.
+
+#### 📑 Self-Service Business Intelligence & Reporting
+To drastically reduce engineering dependency for custom data requests, the system features:
+* An intuitive, non-technical drag-and-drop report builder allowing managers to create and modify template layouts on the fly.
+* High-fidelity document generation supporting dynamic filtering by academic year, faculty, and department.
+* One-click data portability, exporting reports and visual graphics into production-ready PDF and Excel sheets.
+
+#### 🚨 Proactive Operational Alerting
+The platform implements an automated threshold monitoring system that flags critical institutional risks—such as sudden drops in attendance patterns, high dropout rates, or SLA violations in document issuance—alerting management instantly on their operational feed.
+
+---
+
+### 🛠️ Technical Highlights & Engineering Design
+
+* **Data Aggregation Strategy:** Engineered to safely aggregate data without introducing performance bottlenecks into transactional modules.
+* **Granular Access Control:** Implements robust Role-Based Access Control (RBAC) ensuring data row-level security based on academic department and user role.
+* **Rich Interactive Visualization:** Built using a decoupled front-end architecture utilizing modern charting libraries to render highly interactive drill-down charts (bar, line, pie, donut) that scale beautifully across mobile and desktop.
+
+---
+
+### 💼 Business Value Delivered
+* **Data-Driven Leadership:** Replaced manual compilation loops with real-time strategic monitoring.
+* **Operational Efficiency:** Cut down bottleneck identification time in document workflows by mapping processing times against configured SLAs.
+* **Autonomy:** Enabled business teams to self-serve 90% of their operational report variations without developer intervention.
+    `,
+    author: 'Khiev Sokmesa',
+    publishedAt: '2024-04-05',
+    readTime: 9,
+    category: 'react',
+    tags: ['ReactJS', 'State Management', 'Frontend', 'Architecture'],
+  },
 ];

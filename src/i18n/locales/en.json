@@ -116,7 +116,8 @@
     "bongloyDescription": "Advanced payment gateway and processor for secure and reliable online transactions. Integrated with a wide range of payment systems, including Visa, Mastercard, and more.",
     "vtenhDescription": "Full-stack e-commerce solution with backend API, customer-facing website, and admin dashboard for inventory and order management.",
     "depotDescription": "Enterprise system for logistics and depot operations management. Led team implementation with stakeholder collaboration.",
-    "certificateVerificationDescription": "Certificate Verification is a platform that enables universities and similar institutions to issue, manage, and verify digital academic credentials, such as diplomas, degrees, and course completion certificates. Supports students, registrars, and third-party verifiers via secure links and QR codes."
+    "certificateVerificationDescription": "Certificate Verification is a platform that enables universities and similar institutions to issue, manage, and verify digital academic credentials, such as diplomas, degrees, and course completion certificates. Supports students, registrars, and third-party verifiers via secure links and QR codes.",
+    "drsDescription": "The Dashboard & Reporting System (DRS) is an enterprise-grade analytics and business intelligence platform designed to centralize, process, and visualize real-time operational data across fragmented institutional ecosystems. Built to transform complex transactional records into actionable organizational insight, DRS serves as the single source of truth for students, academic staff, and executive leadership."
   },
   "articles": {
     "title": "Articles",

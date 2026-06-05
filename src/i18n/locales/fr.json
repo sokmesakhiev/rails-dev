@@ -116,7 +116,8 @@
     "bongloyDescription": "Passerelle et processeur de paiement avancés pour des transactions en ligne sécurisées et fiables. Intégration avec une large gamme de systèmes de paiement, incluant Visa, Mastercard, et plus encore.",
     "vtenhDescription": "Solution e-commerce full-stack avec API backend, site web client, et tableau de bord administrateur pour la gestion des stocks et des commandes.",
     "depotDescription": "Système d'entreprise pour la gestion de la logistique et des opérations de dépôt. Direction de l'implémentation en équipe avec collaboration des parties prenantes.",
-    "certificateVerificationDescription": "Certificate Verification est une plateforme qui permet aux universités et institutions similaires d'émettre, gérer et vérifier des credentials académiques numériques, tels que des diplômes, licences et certificats d'achèvement de cours. Prend en charge les étudiants, les registrars et les vérificateurs tiers via des liens sécurisés et des codes QR."
+    "certificateVerificationDescription": "Certificate Verification est une plateforme qui permet aux universités et institutions similaires d'émettre, gérer et vérifier des credentials académiques numériques, tels que des diplômes, licences et certificats d'achèvement de cours. Prend en charge les étudiants, les registrars et les vérificateurs tiers via des liens sécurisés et des codes QR.",
+    "drsDescription": "Le Système de Tableau et de Rapports (DRS) est une plateforme d'analyse et d'intelligence d'entreprise de niveau d'entreprise conçue pour centraliser, traiter et visualiser les données opérationnelles en temps réel à travers des écosystèmes institutionnels fragmentés. Construit pour transformer des enregistrements transactionnels complexes en information organisationnelle actionnable, DRS sert de source unique de vérité pour les étudiants, le personnel académique et le leadership exécutif."
   },
   "articles": {
     "title": "Articles",
