@@ -29,7 +29,7 @@ const Projects = () => {
       url: "#",
       description: t('projects.drsDescription'),
       technologies: ["NextJS", "Laravel", "TypeScript"],
-      company: "Rails-Dev Consulting",
+      company: "University of Health Sciences",
       logo: "https://www.google.com/s2/favicons?domain=uhs.edu.kh&sz=64",
       year: "2026-2026",
       links: {
