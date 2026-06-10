@@ -191,8 +191,24 @@ const Portfolio = () => {
                         </CardTitle>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-primary font-semibold">
-                            <Briefcase className="h-4 w-4" />
-                            <span>{exp.company}</span>
+                            <Avatar className="h-6 w-6">
+                              <AvatarImage src={exp.logo} alt={exp.company} />
+                              <AvatarFallback className="text-xs bg-primary/10 text-primary">
+                                {exp.company.charAt(0)}
+                              </AvatarFallback>
+                            </Avatar>
+                            {exp.companyUrl ? (
+                              <a
+                                href={exp.companyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                {exp.company}
+                              </a>
+                            ) : (
+                              <span>{exp.company}</span>
+                            )}
                           </div>
                           <div className="flex items-center gap-2 text-muted-foreground text-sm">
                             <MapPin className="h-4 w-4" />
