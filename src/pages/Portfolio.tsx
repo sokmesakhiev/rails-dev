@@ -14,6 +14,8 @@ const Portfolio = () => {
     {
       title: "Interim CTO",
       company: "Sala Tech Digital Solutions Cambodia",
+      companyUrl: "https://sala.tech",
+      logo: "https://www.google.com/s2/favicons?domain=sala.tech&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "03/2026 - Present",
       type: "Digital Solutions",
