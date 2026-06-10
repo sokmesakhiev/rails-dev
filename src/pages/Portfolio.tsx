@@ -32,6 +32,8 @@ const Portfolio = () => {
     {
       title: "Senior Full-Stack Developer",
       company: "OnTheGoSystems",
+      companyUrl: "https://onthegosystems.com",
+      logo: "https://www.google.com/s2/favicons?domain=onthegosystems.com&sz=64",
       location: "Remote - Europe",
       period: "11/2022 - 03/2026",
       type: "Software Company",
@@ -47,6 +49,8 @@ const Portfolio = () => {
     {
       title: "Senior Software Developer Associate",
       company: "Z1Data",
+      companyUrl: "https://z1data.com",
+      logo: "https://www.google.com/s2/favicons?domain=z1data.com&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "03/2021 - 11/2022",
       type: "Data Company",
@@ -61,6 +65,8 @@ const Portfolio = () => {
     {
       title: "Senior Software Developer",
       company: "Bongloy Payments PLC",
+      companyUrl: "https://bongloy.asia",
+      logo: "https://www.google.com/s2/favicons?domain=bongloy.asia&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "10/2018 - 03/2021",
       type: "Payment Service Provider",
@@ -75,6 +81,8 @@ const Portfolio = () => {
     {
       title: "Freelance Software Consultant",
       company: "VTenh",
+      companyUrl: "https://www.vtenh.com",
+      logo: "https://www.google.com/s2/favicons?domain=vtenh.com&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "05/2021 - 12/2021",
       type: "E-Commerce",
@@ -87,6 +95,8 @@ const Portfolio = () => {
     {
       title: "Tech Adviser and Project Manager",
       company: "CamSolution",
+      companyUrl: "https://camsolution.com",
+      logo: "https://www.google.com/s2/favicons?domain=camsolution.com&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "05/2017 - 01/2018",
       type: "Software consulting company",
