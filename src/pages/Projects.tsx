@@ -95,7 +95,7 @@ const Projects = () => {
       description: t('projects.depotDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "jQuery", "Bootstrap"],
       company: "CamSolution",
-      logo: "https://www.google.com/s2/favicons?domain=camsolution.com&sz=64",
+      logo: "https://www.google.com/s2/favicons?domain=aditi.com.kh&sz=64",
       year: "2017-2018",
       links: {
         demo: "",
