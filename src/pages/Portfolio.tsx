@@ -95,8 +95,8 @@ const Portfolio = () => {
     {
       title: "Tech Adviser and Project Manager",
       company: "CamSolution",
-      companyUrl: "https://camsolution.com",
-      logo: "https://www.google.com/s2/favicons?domain=camsolution.com&sz=64",
+      companyUrl: "https://aditi.com.kh",
+      logo: "https://www.google.com/s2/favicons?domain=aditi.com.kh&sz=64",
       location: "Phnom Penh, Cambodia",
       period: "05/2017 - 01/2018",
       type: "Software consulting company",
