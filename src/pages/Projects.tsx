@@ -12,6 +12,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Rally",
+      url: 'https://rally.rails-dev.com',
+      description: t('projects.rallyDescription'),
+      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "QRPayment", "ReactJs", "Terraform"],
+      company: "RailsDev Consulting",
+      year: "2026-2026",
+      links: {
+        demo: "https://rally.rails-dev.com",
+        github: "https://github.com/sokmesakhiev/rally"
+      }
+    },
+    {
       title: "Certificate Verification",
       url: "https://certificate-verification.sala.tech/",
       description: t('projects.certificateVerificationDescription'),
