@@ -111,6 +111,7 @@
     "technologies": "Technologies",
     "viewDemo": "Voir la Démo",
     "viewCode": "Voir le Code",
+    "rallyDescription": "Rally est une plateforme pour créer et gérer des événements. Elle permet de créer des événements, inviter des invités et suivre les réponses aux invitations. Elle est construite avec Ruby on Rails et ReactJS.",
     "ptcDescription": "Moteur de traduction intelligent utilisant des modèles de langue larges pour améliorer la qualité de la traduction et l’intelligence du système. Intégré avec des modèles de langue larges.",
     "z1DataDescription": "Application évolutive pour l'évaluation automatisée de biens immobiliers avec intégration de données géospatiales. Développement d'API pour le traitement de données immobilières et l'optimisation de recherche élastique.",
     "bongloyDescription": "Passerelle et processeur de paiement avancés pour des transactions en ligne sécurisées et fiables. Intégration avec une large gamme de systèmes de paiement, incluant Visa, Mastercard, et plus encore.",
