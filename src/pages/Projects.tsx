@@ -12,6 +12,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Rally",
+      url: 'https://rally.rails-dev.com',
+      description: t('projects.rallyDescription'),
+      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "QRPayment", "ReactJs", "Terraform"],
+      company: "RailsDev Consulting",
+      year: "2026-2026",
+      links: {
+        demo: "https://rally.rails-dev.com",
+        github: "https://github.com/sokmesakhiev/rally"
+      }
+    },
+    {
       title: "Certificate Verification",
       url: "https://certificate-verification.sala.tech/",
       description: t('projects.certificateVerificationDescription'),
@@ -29,7 +41,7 @@ const Projects = () => {
       url: "#",
       description: t('projects.drsDescription'),
       technologies: ["NextJS", "Laravel", "TypeScript"],
-      company: "Rails-Dev Consulting",
+      company: "University of Health Sciences",
       logo: "https://www.google.com/s2/favicons?domain=uhs.edu.kh&sz=64",
       year: "2026-2026",
       links: {
@@ -95,7 +107,7 @@ const Projects = () => {
       description: t('projects.depotDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "jQuery", "Bootstrap"],
       company: "CamSolution",
-      logo: "https://www.google.com/s2/favicons?domain=camsolution.com&sz=64",
+      logo: "https://www.google.com/s2/favicons?domain=aditi.com.kh&sz=64",
       year: "2017-2018",
       links: {
         demo: "",
