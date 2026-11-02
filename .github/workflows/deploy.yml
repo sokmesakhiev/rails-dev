@@ -35,3 +35,39 @@ jobs:
 
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation  --distribution-id ${{secrets.CLOUDFRONT_DIST_ID}} --paths "/*"
+      
+      - name: Notify Telegram — success
+        if: success()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          echo "Rally frontend deployment succeeded"
+          MESSAGE=$(printf '✅ Rails-Dev frontend deployed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
+            "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
+          curl --fail-with-body --silent --show-error --max-time 10 \
+            -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=$MESSAGE"
+
+      - name: Notify Telegram — failure
+        if: failure()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          echo "Rally frontend deployment failed"
+          MESSAGE=$(printf '❌ Rails-Dev frontend deployment failed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
+            "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
+          curl --fail-with-body --silent --show-error --max-time 10 \
+            -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=$MESSAGE"
