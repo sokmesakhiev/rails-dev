@@ -9,7 +9,10 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    # Also require Dependabot to be the one triggering the run: once a human
+    # pushes to a Dependabot PR, fetch-metadata refuses the unsigned commits,
+    # so skip instead of failing — those PRs are merged manually.
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.actor == 'dependabot[bot]'
     steps:
       - name: Fetch Dependabot metadata
         id: metadata

@@ -18,7 +18,7 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-accent/5" />
 
       {/* Animated circles */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
             {t('hero.title')}
-            <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
               {t('hero.subtitle')}
             </span>
           </h1>
