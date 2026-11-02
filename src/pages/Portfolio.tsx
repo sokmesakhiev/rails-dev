@@ -12,12 +12,28 @@ const Portfolio = () => {
 
   const experiences = [
     {
+      title: "Chief Technology Officer",
+      company: "BS Express Cambodia",
+      companyUrl: "https://www.bs-expresscambodia.com/",
+      logo: "https://www.google.com/s2/favicons?domain=bs-expresscambodia.com&sz=64",
+      location: "Phnom Penh, Cambodia",
+      period: "10/2026 - Present",
+      type: "Express Delivery Solutions",
+      achievements: [
+        "Oversee the company's technology strategy, engineering team, and digital transformation initiatives to support business growth.",
+        "Manage and enhance the existing digital ecosystem, including the Xpress Delivery System, Driver App, Bus Booking App, Customer App, and Management Reporting Dashboard.",
+        "Ensure system reliability, performance, security, scalability, and integration across platforms..",
+        "Strengthened engineering leadership, delivery governance, and performance standards.",
+        "Align technology initiatives with business objectives to improve operational efficiency, customer experience, and data-driven decision-making.",
+      ],
+    },
+    {
       title: "Interim CTO",
       company: "Sala Tech Digital Solutions Cambodia",
       companyUrl: "https://sala.tech",
       logo: "https://www.google.com/s2/favicons?domain=sala.tech&sz=64",
       location: "Phnom Penh, Cambodia",
-      period: "03/2026 - Present",
+      period: "03/2026 - 07/2026",
       type: "Digital Solutions",
       achievements: [
         "Led technology strategy and aligned product direction with company growth objectives.",
