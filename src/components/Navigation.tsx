@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { normalizePath } from "@/lib/seo";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +68,7 @@ const Navigation = () => {
 
   const getNavClass = (sectionOrPath: string, isRoute = false) => {
     const isActive = isRoute
-      ? location.pathname === sectionOrPath
+      ? normalizePath(location.pathname) === sectionOrPath
       : isHomePage && activeSection === sectionOrPath;
     return `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
       isActive
@@ -78,7 +79,7 @@ const Navigation = () => {
 
   const getMobileNavClass = (sectionOrPath: string, isRoute = false) => {
     const isActive = isRoute
-      ? location.pathname === sectionOrPath
+      ? normalizePath(location.pathname) === sectionOrPath
       : isHomePage && activeSection === sectionOrPath;
     return `block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
       isActive
@@ -122,20 +123,20 @@ const Navigation = () => {
                 {t('nav.about')}
               </button>
               <button
-                onClick={() => handleNavigation("/portfolio")}
-                className={getNavClass("/portfolio", true)}
+                onClick={() => handleNavigation("/portfolio/")}
+                className={getNavClass("/portfolio/", true)}
               >
                 {t('nav.portfolio')}
               </button>
               <button
-                onClick={() => handleNavigation("/projects")}
-                className={getNavClass("/projects", true)}
+                onClick={() => handleNavigation("/projects/")}
+                className={getNavClass("/projects/", true)}
               >
                 {t('nav.projects')}
               </button>
               <button
-                onClick={() => handleNavigation("/articles")}
-                className={getNavClass("/articles", true)}
+                onClick={() => handleNavigation("/articles/")}
+                className={getNavClass("/articles/", true)}
               >
                 {t('nav.articles', 'Articles')}
               </button>
@@ -179,20 +180,20 @@ const Navigation = () => {
               {t('nav.about')}
             </button>
             <button
-              onClick={() => handleNavigation("/portfolio")}
-              className={getMobileNavClass("/portfolio", true)}
+              onClick={() => handleNavigation("/portfolio/")}
+              className={getMobileNavClass("/portfolio/", true)}
             >
               {t('nav.portfolio')}
             </button>
             <button
-              onClick={() => handleNavigation("/projects")}
-              className={getMobileNavClass("/projects", true)}
+              onClick={() => handleNavigation("/projects/")}
+              className={getMobileNavClass("/projects/", true)}
             >
               {t('nav.projects')}
             </button>
             <button
-              onClick={() => handleNavigation("/articles")}
-              className={getMobileNavClass("/articles", true)}
+              onClick={() => handleNavigation("/articles/")}
+              className={getMobileNavClass("/articles/", true)}
             >
               {t('nav.articles', 'Articles')}
             </button>

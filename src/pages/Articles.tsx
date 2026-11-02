@@ -90,7 +90,7 @@ const Articles = () => {
                       </div>
                     </div>
                     <CardTitle className="group-hover:text-primary transition-colors">
-                      <Link to={`/articles/${article.id}`}>
+                      <Link to={`/articles/${article.id}/`}>
                         {article.title}
                       </Link>
                     </CardTitle>
@@ -111,7 +111,7 @@ const Articles = () => {
                         </Badge>
                       ))}
                     </div>
-                    <Link to={`/articles/${article.id}`}>
+                    <Link to={`/articles/${article.id}/`}>
                       <Button variant="link" className="p-0">
                         {t('articles.readMore', 'Read More')} →
                       </Button>

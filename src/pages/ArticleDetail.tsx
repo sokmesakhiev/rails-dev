@@ -117,7 +117,7 @@ const ArticleDetail = () => {
             <h1 className="text-2xl font-bold text-foreground mb-4">
               {t('articles.notFound', 'Article not found')}
             </h1>
-            <Link to="/articles">
+            <Link to="/articles/">
               <Button>
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 {t('articles.backToArticles', 'Back to Articles')}
@@ -137,7 +137,7 @@ const ArticleDetail = () => {
       <main className="pt-24 pb-16">
         <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Back Button */}
-          <Link to="/articles" className="inline-block mb-8">
+          <Link to="/articles/" className="inline-block mb-8">
             <Button variant="ghost">
               <ArrowLeft className="h-4 w-4 mr-2" />
               {t('articles.backToArticles', 'Back to Articles')}
