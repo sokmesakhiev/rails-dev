@@ -165,7 +165,7 @@ const Projects = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground mb-4 flex-grow">
+                  <p className="text-muted-foreground mb-4 grow">
                     {project.description}
                   </p>
 
