@@ -9,8 +9,14 @@ import Projects from "./pages/Projects";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
+import { usePageMeta } from "./hooks/use-page-meta";
 
 const queryClient = new QueryClient();
+
+const PageMeta = () => {
+  usePageMeta();
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -18,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageMeta />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio" element={<Portfolio />} />
