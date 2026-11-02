@@ -145,7 +145,7 @@ const Projects = () => {
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center gap-3">
                         <Avatar className="h-8 w-8">
-                          <AvatarImage src={project.logo} alt={project.company} />
+                          <AvatarImage src={project.logo} alt={project.company} width={40} height={40} loading="lazy" />
                           <AvatarFallback className="text-xs bg-primary/10 text-primary">
                             {project.company.charAt(0)}
                           </AvatarFallback>

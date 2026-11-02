@@ -5,7 +5,7 @@ import { MapPin, Calendar, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile-photo.webp";
 
 const Portfolio = () => {
   const { t } = useTranslation();
@@ -151,6 +151,8 @@ const Portfolio = () => {
                       <img
                         src={profilePhoto}
                         alt="Khiev Sokmesa"
+                        width={192}
+                        height={192}
                         className="relative w-48 h-48 rounded-full object-cover border-4 border-background shadow-lg"
                       />
                     </div>
@@ -208,7 +210,7 @@ const Portfolio = () => {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-primary font-semibold">
                             <Avatar className="h-6 w-6">
-                              <AvatarImage src={exp.logo} alt={exp.company} />
+                              <AvatarImage src={exp.logo} alt={exp.company} width={40} height={40} loading="lazy" />
                               <AvatarFallback className="text-xs bg-primary/10 text-primary">
                                 {exp.company.charAt(0)}
                               </AvatarFallback>

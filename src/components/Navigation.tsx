@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { normalizePath } from "@/lib/seo";
 
@@ -96,6 +96,8 @@ const Navigation = () => {
             <img
               src={logo}
               alt="Rails Dev"
+              width={128}
+              height={40}
               className="relative w-32 cursor-pointer"
               onClick={() => scrollToSection("home")}
             />
