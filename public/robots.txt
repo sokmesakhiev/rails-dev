@@ -10,5 +10,23 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI search and assistant crawlers (GEO). Note: Cloudflare's "managed
+# robots.txt" setting prepends Disallow rules for many of these; turn it off
+# in the Cloudflare dashboard or these entries have no effect.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://www.rails-dev.com/sitemap.xml
