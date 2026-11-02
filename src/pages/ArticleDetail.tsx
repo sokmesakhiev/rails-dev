@@ -9,23 +9,90 @@ import { mockArticles } from '@/data/mockArticles';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import mermaid from 'mermaid';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 
-interface MermaidNode {
-  children?: Array<{ value?: string } | unknown>;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'default',
+  securityLevel: 'strict',
+});
+
+interface HastNode {
+  type: string;
+  tagName?: string;
+  value?: string;
+  properties?: { className?: unknown };
+  children?: HastNode[];
 }
 
-interface MermaidRenderResult {
-  svg: string;
-}
+const nodeText = (node?: HastNode): string =>
+  node?.value ?? node?.children?.map(nodeText).join('') ?? '';
 
-interface CodeComponentProps {
-  node?: unknown;
-  inline?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  [key: string]: unknown;
-}
+const MermaidDiagram = ({ chart }: { chart: string }) => {
+  const diagramRef = useRef<HTMLDivElement>(null);
+  // useId returns ":r0:"-style ids; mermaid needs a valid CSS selector
+  const diagramId = `mermaid-${useId().replace(/:/g, '')}`;
+
+  useEffect(() => {
+    let cancelled = false;
+    mermaid.render(diagramId, chart)
+      .then(({ svg }) => {
+        if (!cancelled && diagramRef.current) {
+          diagramRef.current.innerHTML = svg;
+        }
+      })
+      .catch((err: Error) => {
+        console.error('Mermaid rendering error:', err);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [chart, diagramId]);
+
+  return <div ref={diagramRef} className="mermaid-diagram my-6 flex justify-center" />;
+};
+
+const markdownComponents: Partial<Components> = {
+  p: ({ children }) => <p className="mb-6">{children}</p>,
+  h2: ({ children }) => <h2 className="text-2xl font-bold mt-10 mb-6">{children}</h2>,
+  h3: ({ children }) => <h3 className="text-xl font-bold mt-8 mb-4">{children}</h3>,
+  h4: ({ children }) => <h4 className="text-lg font-bold mt-6 mb-3">{children}</h4>,
+  ul: ({ children }) => <ul className="mb-6 ml-6 list-disc">{children}</ul>,
+  ol: ({ children }) => <ol className="mb-6 ml-6 list-decimal">{children}</ol>,
+  li: ({ children }) => <li className="mb-2">{children}</li>,
+  table: ({ children }) => <table className="mb-6 w-full border-collapse">{children}</table>,
+  thead: ({ children }) => <thead className="bg-muted">{children}</thead>,
+  tbody: ({ children }) => <tbody>{children}</tbody>,
+  tr: ({ children }) => <tr className="border-b">{children}</tr>,
+  th: ({ children }) => <th className="p-3 text-left font-semibold">{children}</th>,
+  td: ({ children }) => <td className="p-3">{children}</td>,
+  hr: () => <hr className="my-8 border-border" />,
+  // Fenced code blocks arrive as <pre><code>; render them here so the
+  // `code` override below only ever sees inline code.
+  pre: ({ node }) => {
+    const codeNode = (node as HastNode | undefined)?.children?.find(
+      (child) => child.type === 'element' && child.tagName === 'code',
+    );
+    const classNames = codeNode?.properties?.className;
+    const className = Array.isArray(classNames) ? classNames.join(' ') : undefined;
+    const text = nodeText(codeNode).replace(/\n$/, '');
+
+    if (className?.includes('language-mermaid')) {
+      return <MermaidDiagram chart={text} />;
+    }
+
+    return (
+      <pre className="bg-muted p-4 rounded-lg overflow-x-auto my-6">
+        <code className={className}>{text}</code>
+      </pre>
+    );
+  },
+  code: ({ node, className, children, ...props }) => (
+    <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
+      {children}
+    </code>
+  ),
+};
 
 const ArticleDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,48 +100,12 @@ const ArticleDetail = () => {
 
   const article = mockArticles.find(a => a.id === id);
 
-  // Initialize mermaid
-  useEffect(() => {
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'default',
-      securityLevel: 'loose',
-    });
-  }, []);
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     });
-  };
-
-  // Custom component for Mermaid diagrams
-  const MermaidComponent = ({ node }: { node: MermaidNode }) => {
-
-    const diagramRef = useRef<HTMLDivElement>(null);
-    const diagramId = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
-
-    useEffect(() => {
-      if (diagramRef.current && node.children && node.children[0]) {
-        const firstChild = node.children[0] as { value?: string };
-        if (firstChild.value) {
-          mermaid.render(diagramId, firstChild.value)
-            .then((result: MermaidRenderResult) => {
-              if (diagramRef.current) {
-                diagramRef.current.innerHTML = result.svg;
-              }
-            })
-            .catch((err: Error) => {
-              console.error('Mermaid rendering error:', err);
-            });
-        }
-
-      }
-    }, [node, diagramId]);
-
-    return <div ref={diagramRef} className="mermaid-diagram my-6 flex justify-center" />;
   };
 
   if (!article) {
@@ -153,43 +184,7 @@ const ArticleDetail = () => {
             <div className="article-content" style={{ lineHeight: '1.8' }}>
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
-                components={{
-                  p: ({ children }) => <p className="mb-6">{children}</p>,
-                  h2: ({ children }) => <h2 className="text-2xl font-bold mt-10 mb-6">{children}</h2>,
-                  h3: ({ children }) => <h3 className="text-xl font-bold mt-8 mb-4">{children}</h3>,
-                  h4: ({ children }) => <h4 className="text-lg font-bold mt-6 mb-3">{children}</h4>,
-                  ul: ({ children }) => <ul className="mb-6 ml-6 list-disc">{children}</ul>,
-                  ol: ({ children }) => <ol className="mb-6 ml-6 list-decimal">{children}</ol>,
-                  li: ({ children }) => <li className="mb-2">{children}</li>,
-                  table: ({ children }) => <table className="mb-6 w-full border-collapse">{children}</table>,
-                  thead: ({ children }) => <thead className="bg-muted">{children}</thead>,
-                  tbody: ({ children }) => <tbody>{children}</tbody>,
-                  tr: ({ children }) => <tr className="border-b">{children}</tr>,
-                  th: ({ children }) => <th className="p-3 text-left font-semibold">{children}</th>,
-                  td: ({ children }) => <td className="p-3">{children}</td>,
-                  hr: () => <hr className="my-8 border-border" />,
-                  code: ({ node, inline, className, children, ...props }: CodeComponentProps) => {
-
-                    const match = /language-(\w+)/.exec(className || '');
-                    const language = match ? match[1] : '';
-
-                    if (language === 'mermaid') {
-                      return <MermaidComponent node={node as MermaidNode} />;
-                    }
-
-                    return !inline ? (
-                      <pre className="bg-muted p-4 rounded-lg overflow-x-auto my-6">
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      </pre>
-                    ) : (
-                      <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
-                        {children}
-                      </code>
-                    );
-                  },
-                } as Partial<Components>}
+                components={markdownComponents}
               >
                 {article.content}
               </ReactMarkdown>
