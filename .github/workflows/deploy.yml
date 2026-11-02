@@ -30,8 +30,20 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{secrets.AWS_REGION}}
 
+      # Vite's assets/ files are content-hashed, so they can be cached forever;
+      # everything else (HTML, sitemap, robots.txt) must revalidate so a new
+      # deploy shows up. Upload assets first and prune old ones last, so pages
+      # still being served never reference a missing file.
       - name: Deploy to S3
-        run: aws s3 sync dist/ s3://${{secrets.S3_BUCKET}} --delete
+        env:
+          BUCKET: s3://${{ secrets.S3_BUCKET }}
+        run: |
+          aws s3 sync dist/assets "$BUCKET/assets" \
+            --cache-control "public, max-age=31536000, immutable"
+          aws s3 sync dist/ "$BUCKET" --delete --exclude "assets/*" \
+            --cache-control "public, max-age=0, must-revalidate"
+          aws s3 sync dist/assets "$BUCKET/assets" --delete \
+            --cache-control "public, max-age=31536000, immutable"
 
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation  --distribution-id ${{secrets.CLOUDFRONT_DIST_ID}} --paths "/*"
