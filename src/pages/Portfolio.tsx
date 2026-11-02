@@ -112,11 +112,11 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="pt-24 pb-20 bg-gradient-to-b from-background to-secondary/30">
+      <div className="pt-24 pb-20 bg-linear-to-b from-background to-secondary/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                 {t('portfolio.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -127,11 +127,11 @@ const Portfolio = () => {
             {/* Profile Section */}
             <Card className="mb-12 overflow-hidden border-2 animate-fade-in-up">
               <CardContent className="p-0">
-                <div className="grid md:grid-cols-[300px,1fr] gap-0">
+                <div className="grid md:grid-cols-[300px_1fr] gap-0">
                   {/* Photo */}
-                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex items-center justify-center">
+                  <div className="bg-linear-to-br from-primary/10 to-accent/10 p-8 flex items-center justify-center">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 rounded-full blur-2xl"></div>
+                      <div className="absolute inset-0 bg-linear-to-br from-primary to-accent opacity-20 rounded-full blur-2xl"></div>
                       <img
                         src={profilePhoto}
                         alt="Khiev Sokmesa"
@@ -234,7 +234,7 @@ const Portfolio = () => {
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, idx) => (
                             <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground">
-                              <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                              <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
                               <span>{achievement}</span>
                             </li>
                           ))}
@@ -253,7 +253,7 @@ const Portfolio = () => {
               ))}
             </div>
 
-            <div className="mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center animate-fade-in-up delay-300">
+            <div className="mt-16 bg-linear-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center animate-fade-in-up delay-300">
               <h3 className="text-3xl font-bold mb-4">{t('portfolio.interestedInWorkingTogether')}</h3>
               <p className="text-lg text-muted-foreground mb-6">
                 {t('portfolio.letDiscussYourProject')}
