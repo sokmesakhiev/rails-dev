@@ -32,6 +32,9 @@ const Articles = () => {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      // Dates are plain YYYY-MM-DD (parsed as UTC); format in UTC so the
+      // prerendered HTML matches the browser in every timezone.
+      timeZone: 'UTC',
     });
   };
 

@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm install          # npm is the source of truth (see "Lockfiles")
 npm run dev          # Vite dev server on http://localhost:8080
-npm run build        # production build to dist/ (does NOT type-check)
+npm run build        # client build + SSR build + prerender into dist/ (does NOT type-check)
 npm run lint         # eslint .
 npx tsc -p tsconfig.app.json --noEmit   # type-check; not part of build or CI
 npm run preview      # serve dist/
@@ -21,14 +21,15 @@ There is no test framework or test suite. Verify changes with lint, the type-che
 
 ## Architecture
 
-- **Entry:** `src/main.tsx` loads `index.css` and initializes i18n (`src/i18n/config.ts`) before rendering `App.tsx`, which sets up the providers (React Query, tooltips, toasters) and the `BrowserRouter` routes: `/`, `/portfolio`, `/projects`, `/articles`, `/articles/:id`, and `*` → `NotFound`. New routes go above the catch-all.
+- **Entry:** `src/main.tsx` loads the font, `index.css` and i18n (`src/i18n/config.ts`), then hydrates `App.tsx` (a `BrowserRouter` around `AppRoutes`). Routes: `/`, `/portfolio`, `/projects`, `/articles`, `/articles/:id`, and `*` → `NotFound`; all but `Index` are `React.lazy`. New routes go above the catch-all, and a new page also needs an entry in `src/lib/seo.ts` to get its own HTML file.
+- **Build-time prerender:** `npm run build` runs three steps. `vite build` emits `dist/<route>/index.html` per entry in `pageMetas` (the `seoPages` plugin in `vite.config.ts`: head tags + `sitemap.xml`). `vite build --ssr src/entry-server.tsx` bundles `AppRoutes` in a `StaticRouter`. `scripts/prerender.mjs` renders each route into its file's `#root` and tags it `data-prerendered="<path>"`. `main.tsx` hydrates only when that matches the URL, otherwise it client-renders (unknown paths get the home page's file). So components must render the same on server and client: no `window`/`document` during render (effects and handlers are fine), and anything browser-only (like mermaid) is imported lazily.
 - **Pages** (`src/pages/`) each render `Navigation` + content + `Footer` themselves; there is no shared layout route. The home page (`Index.tsx`) is just `Hero`, `Services`, `About` sections. `Navigation` scrolls to those section ids (`home`, `services`, `about`) on `/` and navigates (via `navigate()` on buttons) for the other routes.
 - **Content is hard-coded in components**, not fetched:
   - Articles: `src/data/mockArticles.ts` (`Article` interface; `content` is a Markdown string). Category must be one of `rails | react | fullstack | devops`, which matches the filter in `Articles.tsx`.
   - Portfolio experience entries: inline array in `Portfolio.tsx` (English only, not translated).
   - Projects: inline array in `Projects.tsx`; titles are literal, descriptions come from i18n keys.
-- **Article rendering** (`ArticleDetail.tsx`): `react-markdown` v10 + `remark-gfm`. Fenced code blocks are rendered by the `pre` override; the `code` override only ever handles inline code (v10 has no `inline` prop). ```` ```mermaid ```` blocks render through the module-level `MermaidDiagram` (mermaid 12, `securityLevel: 'strict'`, id from `useId()`). Mermaid is a large chunk of the bundle.
-- **i18n:** i18next with four locales in `src/i18n/locales/{en,es,fr,km}.json` (`km` = Khmer). Every key must exist in all four files; keys are nested by page/section (`nav`, `hero`, `services`, `about`, `footer`, `portfolio`, `projects`, `articles`). Some calls pass an inline English fallback (`t('articles.title', 'Articles')`). `config.ts` sets `lng: 'en'`, which overrides the browser language detector, so the site always starts in English. Date formatting is hard-coded to `en-US`.
+- **Article rendering** (`ArticleDetail.tsx`): `react-markdown` v10 + `remark-gfm`. Fenced code blocks are rendered by the `pre` override; the `code` override only ever handles inline code (v10 has no `inline` prop). ```` ```mermaid ```` blocks render through `MermaidDiagram` (mermaid 12, `securityLevel: 'strict'`, id from `useId()`). Mermaid is large and needs the DOM, so `loadMermaid()` imports it on the first diagram.
+- **i18n:** i18next with four locales in `src/i18n/locales/{en,es,fr,km}.json` (`km` = Khmer). Every key must exist in all four files; keys are nested by page/section (`nav`, `hero`, `services`, `about`, `footer`, `portfolio`, `projects`, `articles`). Some calls pass an inline English fallback (`t('articles.title', 'Articles')`). `config.ts` sets `lng: 'en'`, which overrides the browser language detector, so the site always starts in English. Date formatting is hard-coded to `en-US` and `timeZone: 'UTC'`, so prerendered dates match in every timezone.
 - **UI components:** `src/components/ui/*` are shadcn/ui primitives (`components.json`, style `default`, alias `@/components/ui`). Most are unused; treat them as generated code and prefer composing them over editing them. Use `cn()` from `src/lib/utils.ts` to merge classes. The `@/` alias maps to `src/`.
 
 ## Styling (Tailwind v4, CSS-first)
