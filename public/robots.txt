@@ -10,15 +10,19 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# AI search and assistant crawlers (GEO). Note: Cloudflare's "managed
-# robots.txt" setting prepends Disallow rules for many of these; turn it off
-# in the Cloudflare dashboard or these entries have no effect.
+# AI search and assistant crawlers (GEO). Cloudflare's "managed robots.txt"
+# setting prepends "Disallow: /" for many of these. Crawlers merge every group
+# naming them and let Allow win an equal-length tie, so each one blocked there
+# must be listed here too. Turning the setting off in Cloudflare is cleaner.
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
 User-agent: ClaudeBot
 User-agent: Claude-SearchBot
 User-agent: Claude-User
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: cohere-ai
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 User-agent: Google-Extended

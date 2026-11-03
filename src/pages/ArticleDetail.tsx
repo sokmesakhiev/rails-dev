@@ -8,14 +8,20 @@ import { Badge } from '@/components/ui/badge';
 import { mockArticles } from '@/data/mockArticles';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import mermaid from 'mermaid';
 import { useEffect, useId, useRef } from 'react';
 
-mermaid.initialize({
-  startOnLoad: false,
-  theme: 'default',
-  securityLevel: 'strict',
-});
+// Loaded on first diagram only: mermaid is large and needs the DOM, so it
+// must stay out of the build-time prerender.
+let mermaidPromise: Promise<typeof import('mermaid').default> | undefined;
+const loadMermaid = () =>
+  (mermaidPromise ??= import('mermaid').then(({ default: mermaid }) => {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'strict',
+    });
+    return mermaid;
+  }));
 
 interface HastNode {
   type: string;
@@ -35,7 +41,8 @@ const MermaidDiagram = ({ chart }: { chart: string }) => {
 
   useEffect(() => {
     let cancelled = false;
-    mermaid.render(diagramId, chart)
+    loadMermaid()
+      .then((mermaid) => mermaid.render(diagramId, chart))
       .then(({ svg }) => {
         if (!cancelled && diagramRef.current) {
           diagramRef.current.innerHTML = svg;
@@ -105,6 +112,9 @@ const ArticleDetail = () => {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      // Dates are plain YYYY-MM-DD (parsed as UTC); format in UTC so the
+      // prerendered HTML matches the browser in every timezone.
+      timeZone: 'UTC',
     });
   };
 
