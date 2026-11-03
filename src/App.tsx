@@ -16,8 +16,10 @@ const PageMeta = () => {
   return null;
 };
 
-const App = () => (
-  <BrowserRouter>
+// Router-agnostic so the build-time prerender (src/entry-server.tsx) can wrap
+// it in a StaticRouter.
+export const AppRoutes = () => (
+  <>
     <PageMeta />
     <Suspense fallback={<div className="min-h-screen" />}>
       <Routes>
@@ -30,6 +32,12 @@ const App = () => (
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
+  </>
+);
+
+const App = () => (
+  <BrowserRouter>
+    <AppRoutes />
   </BrowserRouter>
 );
 
