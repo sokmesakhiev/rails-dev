@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
+    ignore:
+      # @eslint/js must match eslint's major version (v10 needs eslint 10,
+      # and npm install fails otherwise). Upgrade both together, by hand.
+      - dependency-name: "@eslint/js"
+        update-types: ["version-update:semver-major"]
     # One PR per group instead of one per package. Major bumps stay separate
     # so they can be reviewed by hand (dependabot-auto-merge.yml skips them).
     groups:
