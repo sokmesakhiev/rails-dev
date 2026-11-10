@@ -4,7 +4,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { siGithub } from "simple-icons";
+import BrandIcon from "@/components/BrandIcon";
 import { useTranslation } from "react-i18next";
 
 const Projects = () => {
@@ -218,7 +220,7 @@ const Projects = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <Github className="w-4 h-4 mr-2" />
+                            <BrandIcon icon={siGithub} className="w-4 h-4 mr-2" />
                             {t('projects.viewCode')}
                           </a>
                         </Button>
