@@ -17,10 +17,9 @@ const Navigation = () => {
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection("");
-      return;
-    }
+    // Off the home page no section is highlighted: the nav classes check
+    // isHomePage, so there's no state to reset here.
+    if (!isHomePage) return;
 
     const handleScroll = () => {
       const sections = ["home", "services", "tech-stack", "about"];
