@@ -27,11 +27,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      # Same install as deploy.yml: fails here if package-lock.json is out of
+      # sync with package.json, instead of failing the production deploy.
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Lint
         run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
 
       - name: Build
         run: npm run build

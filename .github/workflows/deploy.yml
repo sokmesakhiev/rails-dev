@@ -4,6 +4,12 @@ on:
   push:
     branches: [ "main" ]
 
+# Never run two deploys at once (S3 sync + invalidation would interleave);
+# a newer push waits for the running deploy instead of cancelling it.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -58,7 +64,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "Rally frontend deployment succeeded"
+          echo "Rails-Dev frontend deployment succeeded"
           MESSAGE=$(printf '✅ Rails-Dev frontend deployed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
             "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
           curl --fail-with-body --silent --show-error --max-time 10 \
@@ -76,7 +82,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "Rally frontend deployment failed"
+          echo "Rails-Dev frontend deployment failed"
           MESSAGE=$(printf '❌ Rails-Dev frontend deployment failed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
             "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
           curl --fail-with-body --silent --show-error --max-time 10 \

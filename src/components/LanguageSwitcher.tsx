@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
+import { setLanguage } from '@/i18n/config';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
@@ -21,7 +22,7 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
   const changeLanguage = (langCode: string) => {
-    i18n.changeLanguage(langCode);
+    setLanguage(langCode);
   };
 
   return (

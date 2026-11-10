@@ -22,8 +22,8 @@ const Portfolio = () => {
       achievements: [
         "Oversee the company's technology strategy, engineering team, and digital transformation initiatives to support business growth.",
         "Manage and enhance the existing digital ecosystem, including the Xpress Delivery System, Driver App, Bus Booking App, Customer App, and Management Reporting Dashboard.",
-        "Ensure system reliability, performance, security, scalability, and integration across platforms..",
-        "Strengthened engineering leadership, delivery governance, and performance standards.",
+        "Ensure system reliability, performance, security, scalability, and integration across platforms.",
+        "Strengthen engineering leadership, delivery governance, and performance standards.",
         "Align technology initiatives with business objectives to improve operational efficiency, customer experience, and data-driven decision-making.",
       ],
     },
