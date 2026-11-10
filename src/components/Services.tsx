@@ -14,7 +14,7 @@ const Services = () => {
         t("services.rails.features.restfulApis"),
         t("services.rails.features.databaseDesign"),
         t("services.rails.features.authentication"),
-        t("services.rails.features.backgrounJobs"),
+        t("services.rails.features.backgroundJobs"),
         t("services.rails.features.testing")
       ]
     },

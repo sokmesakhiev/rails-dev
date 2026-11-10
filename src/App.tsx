@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import { usePageMeta } from "./hooks/use-page-meta";
+import { restoreSavedLanguage } from "./i18n/config";
 
 // Only the home page ships in the main bundle; the other routes (and
 // mermaid, which ArticleDetail pulls in) load on demand.
@@ -35,10 +36,19 @@ export const AppRoutes = () => (
   </>
 );
 
-const App = () => (
-  <BrowserRouter>
-    <AppRoutes />
-  </BrowserRouter>
-);
+// Effects run only in the browser, after hydration, so switching away from
+// the prerendered English can't cause a hydration mismatch.
+const useSavedLanguage = () => {
+  useEffect(() => restoreSavedLanguage(), []);
+};
+
+const App = () => {
+  useSavedLanguage();
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+};
 
 export default App;

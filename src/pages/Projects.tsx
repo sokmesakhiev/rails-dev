@@ -15,9 +15,9 @@ const Projects = () => {
       title: "Rally",
       url: 'https://rally.rails-dev.com',
       description: t('projects.rallyDescription'),
-      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "QRPayment", "ReactJs", "Terraform"],
+      technologies: ["Ruby on Rails", "ReactJS", "AWS ECS", "QRPayment", "Terraform"],
       company: "RailsDev Consulting",
-      year: "2026-2026",
+      year: "2026",
       links: {
         demo: "https://rally.rails-dev.com",
         github: "https://github.com/sokmesakhiev/rally"
@@ -38,12 +38,12 @@ const Projects = () => {
     },
      {
       title: "Dashboard & Reporting System (DRS)",
-      url: "#",
+      url: "",
       description: t('projects.drsDescription'),
       technologies: ["NextJS", "Laravel", "TypeScript"],
       company: "University of Health Sciences",
       logo: "https://www.google.com/s2/favicons?domain=uhs.edu.kh&sz=64",
-      year: "2026-2026",
+      year: "2026",
       links: {
         demo: "",
         github: ""
@@ -64,7 +64,7 @@ const Projects = () => {
     },
     {
       title: "Property Valuation Platform",
-      url: "#",
+      url: "",
       description: t('projects.z1DataDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "Elasticsearch", "AWS", "ReactJS"],
       company: "Z1Data",
@@ -103,7 +103,7 @@ const Projects = () => {
     },
     {
       title: "Depot Management System",
-      url: "#",
+      url: "",
       description: t('projects.depotDescription'),
       technologies: ["Ruby on Rails", "PostgreSQL", "jQuery", "Bootstrap"],
       company: "CamSolution",
@@ -151,9 +151,13 @@ const Projects = () => {
                           </AvatarFallback>
                         </Avatar>
                         <h3 className="text-xl font-semibold text-foreground">
-                          <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                            {project.title}
-                          </a>
+                          {project.url ? (
+                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                              {project.title}
+                            </a>
+                          ) : (
+                            project.title
+                          )}
                         </h3>
                       </div>
                     </div>

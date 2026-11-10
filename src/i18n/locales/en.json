@@ -25,7 +25,7 @@
         "restfulApis": "RESTful APIs",
         "databaseDesign": "Database Design",
         "authentication": "Authentication",
-        "backgrounJobs": "Background Jobs",
+        "backgroundJobs": "Background Jobs",
         "testing": "Testing & CI/CD"
       }
     },
