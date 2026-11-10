@@ -2,6 +2,7 @@
   "nav": {
     "home": "ទំព័រដើម",
     "services": "សេវាកម្ម",
+    "techStack": "បច្ចេកវិទ្យា",
     "about": "អំពីយើង",
     "portfolio": "ប្រវត្តិរូប",
     "projects": "គម្រោង",
@@ -58,6 +59,19 @@
         "authenticationSecurity": "ប្រពន្ធ័សុវត្ថិភាព និង ការកំណត់ការចូលប្រើប្រាស់",
         "cloudDeployment": "ការដាក់អោយដំណើរការនៅលើ Cloud"
       }
+    }
+  },
+  "techStack": {
+    "eyebrow": "បច្ចេកវិទ្យាដែលយើងប្រើ",
+    "title": "បច្ចេកវិទ្យា Full-Stack",
+    "subtitle": "ចាប់ពី Backend ជាមួយ Rails រហូតដល់ AI Agents និងហេដ្ឋារចនាសម្ព័ន្ធ Cloud — ឧបករណ៍ដែលយើងប្រើដើម្បីបង្កើត និងដាក់ឱ្យដំណើរការ។",
+    "filterLabel": "ត្រងបច្ចេកវិទ្យាតាមប្រភេទ",
+    "categories": {
+      "all": "ទាំងអស់",
+      "backend": "Backend",
+      "ai": "ឧបករណ៍ AI",
+      "frontend": "Frontend",
+      "devops": "DevOps និង Cloud"
     }
   },
   "about": {

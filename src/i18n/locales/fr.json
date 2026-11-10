@@ -2,6 +2,7 @@
   "nav": {
     "home": "Accueil",
     "services": "Services",
+    "techStack": "Technologies",
     "about": "À Propos",
     "portfolio": "Portfolio",
     "projects": "Projets",
@@ -58,6 +59,19 @@
         "authenticationSecurity": "Authentification et Sécurité",
         "cloudDeployment": "Deployment en nuage"
       }
+    }
+  },
+  "techStack": {
+    "eyebrow": "Stack technique",
+    "title": "Une suite technologique full-stack",
+    "subtitle": "Des back-ends Rails aux agents IA et à l'infrastructure cloud : les outils que nous utilisons pour concevoir et livrer.",
+    "filterLabel": "Filtrer les technologies par catégorie",
+    "categories": {
+      "all": "Tout",
+      "backend": "Backend",
+      "ai": "Outils IA",
+      "frontend": "Frontend",
+      "devops": "DevOps et Cloud"
     }
   },
   "about": {
