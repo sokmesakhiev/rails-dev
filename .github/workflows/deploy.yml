@@ -4,16 +4,22 @@ on:
   push:
     branches: [ "main" ]
 
+# Never run two deploys at once (S3 sync + invalidation would interleave);
+# a newer push waits for the running deploy instead of cancelling it.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
 
@@ -24,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -58,7 +64,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "Rally frontend deployment succeeded"
+          echo "Rails-Dev frontend deployment succeeded"
           MESSAGE=$(printf '✅ Rails-Dev frontend deployed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
             "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
           curl --fail-with-body --silent --show-error --max-time 10 \
@@ -76,7 +82,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          echo "Rally frontend deployment failed"
+          echo "Rails-Dev frontend deployment failed"
           MESSAGE=$(printf '❌ Rails-Dev frontend deployment failed\nRepo: %s\nBranch: %s\nCommit: %s\nRun: %s' \
             "$REPO" "$BRANCH" "${GITHUB_SHA:0:7}" "$RUN_URL")
           curl --fail-with-body --silent --show-error --max-time 10 \

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
+    "techStack": "Tecnologías",
     "about": "Sobre Nosotros",
     "portfolio": "Portafolio",
     "projects": "Proyectos",
@@ -25,7 +26,7 @@
         "restfulApis": "RESTful APIs",
         "databaseDesign": "Diseño de Bases de Datos",
         "authentication": "Autenticación",
-        "backgrounJobs": "Trabajos en Fondo",
+        "backgroundJobs": "Trabajos en Fondo",
         "testing": "Pruebas & CI/CD"
       }
     },
@@ -38,7 +39,6 @@
         "performanceOptimization": "Optimización de Rendimiento",
         "modernTooling": "Herramientas Modernas"
       }
-
     },
     "consulting": {
       "title": "Consultoria & Entrenamiento",
@@ -59,6 +59,19 @@
         "authenticationSecurity": "Autenticación y Seguridad",
         "cloudDeployment": "Despliegue en la Nube"
       }
+    }
+  },
+  "techStack": {
+    "eyebrow": "Tecnologías",
+    "title": "Suite tecnológica full-stack",
+    "subtitle": "Desde back ends en Rails hasta agentes de IA e infraestructura en la nube: las herramientas que usamos para construir y lanzar.",
+    "filterLabel": "Filtrar tecnologías por categoría",
+    "categories": {
+      "all": "Todas",
+      "backend": "Backend",
+      "ai": "Herramientas de IA",
+      "frontend": "Frontend",
+      "devops": "DevOps y Cloud"
     }
   },
   "about": {

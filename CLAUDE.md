@@ -13,11 +13,11 @@ npm install          # npm is the source of truth (see "Lockfiles")
 npm run dev          # Vite dev server on http://localhost:8080
 npm run build        # client build + SSR build + prerender into dist/ (does NOT type-check)
 npm run lint         # eslint .
-npx tsc -p tsconfig.app.json --noEmit   # type-check; not part of build or CI
+npm run typecheck    # tsc for the app (tsconfig.app.json) and the Node SSR entry (tsconfig.ssr.json); runs in CI, not in build
 npm run preview      # serve dist/
 ```
 
-There is no test framework or test suite. Verify changes with lint, the type-check above, a build, and by checking the page in the browser (`.claude/launch.json` defines a `dev` preview on port 8080).
+There is no test framework or test suite. Verify changes with lint, `npm run typecheck`, a build, and by checking the page in the browser (`.claude/launch.json` defines a `dev` preview on port 8080).
 
 ## Architecture
 
@@ -29,7 +29,7 @@ There is no test framework or test suite. Verify changes with lint, the type-che
   - Portfolio experience entries: inline array in `Portfolio.tsx` (English only, not translated).
   - Projects: inline array in `Projects.tsx`; titles are literal, descriptions come from i18n keys.
 - **Article rendering** (`ArticleDetail.tsx`): `react-markdown` v10 + `remark-gfm`. Fenced code blocks are rendered by the `pre` override; the `code` override only ever handles inline code (v10 has no `inline` prop). ```` ```mermaid ```` blocks render through `MermaidDiagram` (mermaid 12, `securityLevel: 'strict'`, id from `useId()`). Mermaid is large and needs the DOM, so `loadMermaid()` imports it on the first diagram.
-- **i18n:** i18next with four locales in `src/i18n/locales/{en,es,fr,km}.json` (`km` = Khmer). Every key must exist in all four files; keys are nested by page/section (`nav`, `hero`, `services`, `about`, `footer`, `portfolio`, `projects`, `articles`). Some calls pass an inline English fallback (`t('articles.title', 'Articles')`). `config.ts` sets `lng: 'en'`, which overrides the browser language detector, so the site always starts in English. Date formatting is hard-coded to `en-US` and `timeZone: 'UTC'`, so prerendered dates match in every timezone.
+- **i18n:** i18next with four locales in `src/i18n/locales/{en,es,fr,km}.json` (`km` = Khmer). Every key must exist in all four files; keys are nested by page/section (`nav`, `hero`, `services`, `about`, `footer`, `portfolio`, `projects`, `articles`). Some calls pass an inline English fallback (`t('articles.title', 'Articles')`). `config.ts` sets `lng: 'en'` so every page starts (and hydrates) in English. There is no browser-language detection: `setLanguage()` (used by `LanguageSwitcher`) saves the visitor's pick to `localStorage` (`language`), and `restoreSavedLanguage()`, called from an effect in `App.tsx`, applies it after hydration and after i18next finishes its async init. A `languageChanged` listener keeps `<html lang>` in sync. Date formatting is hard-coded to `en-US` and `timeZone: 'UTC'`, so prerendered dates match in every timezone.
 - **UI components:** `src/components/ui/*` are shadcn/ui primitives (`components.json`, style `default`, alias `@/components/ui`). Most are unused; treat them as generated code and prefer composing them over editing them. Use `cn()` from `src/lib/utils.ts` to merge classes. The `@/` alias maps to `src/`.
 
 ## Styling (Tailwind v4, CSS-first)
@@ -47,14 +47,15 @@ TypeScript runs loose (`strict: false`, `strictNullChecks: false`, `noImplicitAn
 ## Branches, CI and deploy
 
 - `develop` is the GitHub default branch; Dependabot PRs and feature work target it. `main` is production.
-- `.github/workflows/ci.yml`: lint + build on PRs to `main`/`develop` and on push to `main` (Node 24, `npm install`).
-- `.github/workflows/deploy.yml`: on push to `main`, `npm ci` → build → `aws s3 sync dist/ --delete` → CloudFront invalidation, then a Telegram notification on success or failure. Because it uses `npm ci`, a `package-lock.json` that is out of sync with `package.json` breaks the deploy.
+- `.github/workflows/ci.yml`: `npm ci` + lint + type-check + build on PRs to `main`/`develop` and on push to `main` (Node 24). It uses `npm ci` like deploy, so lockfile drift fails CI first.
+- `.github/workflows/deploy.yml`: on push to `main`, `npm ci` → build → `aws s3 sync dist/ --delete` → CloudFront invalidation, then a Telegram notification on success or failure. A `concurrency` group keeps deploys from overlapping. Because it uses `npm ci`, a `package-lock.json` that is out of sync with `package.json` breaks the deploy.
+- `.github/dependabot.yml`: weekly npm updates grouped into a few PRs (Radix, build tooling, everything else; majors stay separate) plus weekly GitHub Actions updates.
 - `.github/workflows/dependabot-auto-merge.yml`: squash auto-merges Dependabot patch/minor updates via `GH_ADMIN_TOKEN` (a PAT stored as a Dependabot secret, so the merge still triggers `deploy.yml`). Major bumps, and any Dependabot PR a human has pushed to, are skipped and must be merged by hand.
 - The site is a client-side-routed SPA, so the CloudFront distribution needs a 403/404 → `/index.html` fallback for deep links.
 
 ## Lockfiles
 
-`package-lock.json` is the one CI and deploy use. `yarn.lock` (Yarn 1), `bun.lock` and `bun.lockb` are also committed but are not kept in sync by Dependabot, and they are a frequent source of merge conflicts. When resolving dependency conflicts, settle `package.json` first, then regenerate with `npm install` and confirm with `npm ci`. Don't hand-merge lockfiles.
+`package-lock.json` is the only lockfile; don't commit `yarn.lock` or `bun.lock*`. When resolving dependency conflicts, settle `package.json` first, then regenerate with `npm install` and confirm with `npm ci`. Don't hand-merge lockfiles.
 
 ## Leftovers to be aware of
 

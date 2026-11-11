@@ -17,13 +17,12 @@ const Navigation = () => {
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection("");
-      return;
-    }
+    // Off the home page no section is highlighted: the nav classes check
+    // isHomePage, so there's no state to reset here.
+    if (!isHomePage) return;
 
     const handleScroll = () => {
-      const sections = ["home", "services", "about"];
+      const sections = ["home", "services", "tech-stack", "about"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -70,7 +69,7 @@ const Navigation = () => {
     const isActive = isRoute
       ? normalizePath(location.pathname) === sectionOrPath
       : isHomePage && activeSection === sectionOrPath;
-    return `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+    return `whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium transition-colors ${
       isActive
         ? "text-primary bg-primary/10"
         : "text-foreground hover:text-primary"
@@ -104,7 +103,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <button
                 onClick={() => scrollToSection("home")}
@@ -117,6 +116,12 @@ const Navigation = () => {
                 className={getNavClass("services")}
               >
                 {t('nav.services')}
+              </button>
+              <button
+                onClick={() => scrollToSection("tech-stack")}
+                className={getNavClass("tech-stack")}
+              >
+                {t('nav.techStack')}
               </button>
               <button
                 onClick={() => scrollToSection("about")}
@@ -147,7 +152,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -161,7 +166,7 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-b border-border">
             <button
               onClick={() => scrollToSection("home")}
@@ -174,6 +179,12 @@ const Navigation = () => {
               className={getMobileNavClass("services")}
             >
               {t('nav.services')}
+            </button>
+            <button
+              onClick={() => scrollToSection("tech-stack")}
+              className={getMobileNavClass("tech-stack")}
+            >
+              {t('nav.techStack')}
             </button>
             <button
               onClick={() => scrollToSection("about")}

@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Calendar, Linkedin, Github } from "lucide-react";
+import { MapPin, Calendar, BriefcaseBusiness } from "lucide-react";
+import { siGithub } from "simple-icons";
+import BrandIcon from "@/components/BrandIcon";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
@@ -22,8 +24,8 @@ const Portfolio = () => {
       achievements: [
         "Oversee the company's technology strategy, engineering team, and digital transformation initiatives to support business growth.",
         "Manage and enhance the existing digital ecosystem, including the Xpress Delivery System, Driver App, Bus Booking App, Customer App, and Management Reporting Dashboard.",
-        "Ensure system reliability, performance, security, scalability, and integration across platforms..",
-        "Strengthened engineering leadership, delivery governance, and performance standards.",
+        "Ensure system reliability, performance, security, scalability, and integration across platforms.",
+        "Strengthen engineering leadership, delivery governance, and performance standards.",
         "Align technology initiatives with business objectives to improve operational efficiency, customer experience, and data-driven decision-making.",
       ],
     },
@@ -166,13 +168,13 @@ const Portfolio = () => {
                       <div className="flex flex-wrap gap-3">
                         <Button asChild variant="outline" size="sm">
                           <a href="https://www.linkedin.com/in/sokmesa-khiev-38a4b030/" target="_blank" rel="noopener noreferrer">
-                            <Linkedin className="h-4 w-4" />
+                            <BriefcaseBusiness className="h-4 w-4" />
                             LinkedIn
                           </a>
                         </Button>
                         <Button asChild variant="outline" size="sm">
                           <a href="https://github.com/sokmesakhiev" target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4" />
+                            <BrandIcon icon={siGithub} className="h-4 w-4" />
                             GitHub
                           </a>
                         </Button>

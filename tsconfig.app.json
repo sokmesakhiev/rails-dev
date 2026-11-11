@@ -28,5 +28,9 @@
   },
   "include": [
     "src"
+  ],
+  // Node-only build entry; checked by tsconfig.ssr.json with Node types.
+  "exclude": [
+    "src/entry-server.tsx"
   ]
 }

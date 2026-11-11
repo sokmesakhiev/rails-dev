@@ -1,0 +1,9 @@
+{
+  // Type-checks the build-time prerender entry, which runs in Node.
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src/vite-env.d.ts", "src/entry-server.tsx"],
+  "exclude": []
+}
