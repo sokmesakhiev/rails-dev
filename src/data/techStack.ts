@@ -1,15 +1,28 @@
 import type { LucideIcon } from 'lucide-react';
-import { Cloud, CloudCog, FlaskConical, Layers, Sparkles } from 'lucide-react';
 import {
+  BadgeCheck,
+  Cloud,
+  CloudCog,
+  CreditCard,
+  FlaskConical,
+  KeyRound,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+} from 'lucide-react';
+import {
+  siCardano,
   siClaude,
   siCloudflare,
   siDocker,
+  siElasticsearch,
   siGithubactions,
   siGooglecloud,
   siHotwire,
   siKubernetes,
   siLangchain,
   siLaravel,
+  siMongodb,
   siN8n,
   siNextdotjs,
   siNodedotjs,
@@ -21,71 +34,98 @@ import {
   siRedis,
   siRuby,
   siRubyonrails,
-  siStimulus,
-  siSupabase,
+  siStripe,
   siTailwindcss,
   siTerraform,
   siTypescript,
   siVercel,
-  siVite,
   type SimpleIcon,
 } from 'simple-icons';
 
-// Tabs in the Tech Stack section. Labels are translated under
-// `techStack.categories.<key>` in every locale file.
-export const techCategories = ['backend', 'ai', 'frontend', 'devops'] as const;
-export type TechCategory = (typeof techCategories)[number];
-
-// Brand logos come from simple-icons. A few brands (OpenAI, AWS, Azure,
-// Heroku, RSpec) aren't in that set, so those use a neutral lucide icon.
+// Brand logos come from simple-icons. Brands that aren't in that set
+// (OpenAI, AWS, Azure, Heroku, RSpec, Hyperledger, W3C) use a lucide icon.
 export type TechIcon = { brand: SimpleIcon } | { lucide: LucideIcon };
 
 export interface Tech {
-  name: string;
-  // Short technical blurb; product names and terms, so not translated.
-  detail: string;
-  category: TechCategory;
+  name: string; // product name, not translated
   icon: TechIcon;
 }
 
-export const techStack: Tech[] = [
-  // Backend
-  { name: 'Ruby on Rails', detail: 'v8+ / Solid Queue & Cache', category: 'backend', icon: { brand: siRubyonrails } },
-  { name: 'PostgreSQL', detail: 'Schema Design / Optimization', category: 'backend', icon: { brand: siPostgresql } },
-  { name: 'Supabase', detail: 'Postgres / Auth / Storage', category: 'backend', icon: { brand: siSupabase } },
-  { name: 'Redis & Sidekiq', detail: 'Caching / Background Jobs', category: 'backend', icon: { brand: siRedis } },
-  { name: 'RSpec & Capybara', detail: 'Automated Testing / TDD', category: 'backend', icon: { lucide: FlaskConical } },
-  { name: 'Laravel', detail: 'PHP / REST APIs', category: 'backend', icon: { brand: siLaravel } },
-  { name: 'Python', detail: 'APIs / Data / ML Services', category: 'backend', icon: { brand: siPython } },
-  { name: 'Node.js', detail: 'APIs / Real-Time Services', category: 'backend', icon: { brand: siNodedotjs } },
+// The section is organized by what a client gets, not by technology type.
+// Each group's title and description are translated under
+// `techStack.groups.<key>`; `projects` are titles from the Projects page.
+export interface TechGroup {
+  key: 'product' | 'data' | 'ai' | 'identity' | 'cloud';
+  projects: string[];
+  tools: Tech[];
+}
 
-  // AI
-  { name: 'Claude API', detail: 'Tool Use / Agents', category: 'ai', icon: { brand: siClaude } },
-  { name: 'OpenAI API', detail: 'GPT Models / Embeddings', category: 'ai', icon: { lucide: Sparkles } },
-  { name: 'Ollama', detail: 'Self-Hosted Local LLMs', category: 'ai', icon: { brand: siOllama } },
-  { name: 'n8n', detail: 'AI Workflow Automation', category: 'ai', icon: { brand: siN8n } },
-  { name: 'RubyLLM', detail: 'LLM Integration for Rails', category: 'ai', icon: { brand: siRuby } },
-  { name: 'LangChain', detail: 'LLM Apps / RAG / Agents', category: 'ai', icon: { brand: siLangchain } },
-  { name: 'PyTorch', detail: 'Machine Learning', category: 'ai', icon: { brand: siPytorch } },
-
-  // Frontend
-  { name: 'React', detail: 'Inertia.js / SPA', category: 'frontend', icon: { brand: siReact } },
-  { name: 'Next.js', detail: 'React Framework / SSR', category: 'frontend', icon: { brand: siNextdotjs } },
-  { name: 'TypeScript', detail: 'Type-Safe JavaScript', category: 'frontend', icon: { brand: siTypescript } },
-  { name: 'Hotwire / Turbo', detail: 'Drive / Frames / Streams', category: 'frontend', icon: { brand: siHotwire } },
-  { name: 'Stimulus', detail: 'Modest JavaScript Controllers', category: 'frontend', icon: { brand: siStimulus } },
-  { name: 'Vite', detail: 'Fast Frontend Tooling', category: 'frontend', icon: { brand: siVite } },
-  { name: 'Tailwind CSS', detail: 'Modern UI Design', category: 'frontend', icon: { brand: siTailwindcss } },
-
-  // DevOps & Cloud
-  { name: 'Docker & Kamal', detail: 'Containers / Kamal 2 Deploys', category: 'devops', icon: { brand: siDocker } },
-  { name: 'AWS', detail: 'ECS, EC2, S3, RDS, CloudFront', category: 'devops', icon: { lucide: Cloud } },
-  { name: 'Terraform', detail: 'Infrastructure as Code', category: 'devops', icon: { brand: siTerraform } },
-  { name: 'Kubernetes', detail: 'Container Orchestration', category: 'devops', icon: { brand: siKubernetes } },
-  { name: 'Google Cloud', detail: 'Cloud Run / GKE / Cloud SQL', category: 'devops', icon: { brand: siGooglecloud } },
-  { name: 'Microsoft Azure', detail: 'App Service / AKS / Azure SQL', category: 'devops', icon: { lucide: CloudCog } },
-  { name: 'Cloudflare', detail: 'Workers / CDN / DNS', category: 'devops', icon: { brand: siCloudflare } },
-  { name: 'Vercel', detail: 'Frontend Hosting', category: 'devops', icon: { brand: siVercel } },
-  { name: 'Heroku', detail: 'PaaS Deployment', category: 'devops', icon: { lucide: Layers } },
-  { name: 'GitHub Actions', detail: 'CI/CD Workflows', category: 'devops', icon: { brand: siGithubactions } },
+export const techGroups: TechGroup[] = [
+  {
+    key: 'product',
+    projects: ['Rally', 'Private Translation Cloud (PTC)', 'Dashboard & Reporting System (DRS)'],
+    tools: [
+      { name: 'Ruby on Rails', icon: { brand: siRubyonrails } },
+      { name: 'Hotwire (Turbo & Stimulus)', icon: { brand: siHotwire } },
+      { name: 'Laravel', icon: { brand: siLaravel } },
+      { name: 'React', icon: { brand: siReact } },
+      { name: 'Next.js', icon: { brand: siNextdotjs } },
+      { name: 'TypeScript', icon: { brand: siTypescript } },
+      { name: 'Tailwind CSS', icon: { brand: siTailwindcss } },
+      { name: 'RSpec & Capybara', icon: { lucide: FlaskConical } },
+    ],
+  },
+  {
+    key: 'data',
+    projects: ['Payment Gateway & Processing Engine', 'Property Valuation Platform', 'VTenh Ecommerce'],
+    tools: [
+      { name: 'PostgreSQL', icon: { brand: siPostgresql } },
+      { name: 'Redis & Sidekiq', icon: { brand: siRedis } },
+      { name: 'Elasticsearch', icon: { brand: siElasticsearch } },
+      { name: 'MongoDB', icon: { brand: siMongodb } },
+      { name: 'Node.js', icon: { brand: siNodedotjs } },
+      { name: 'Python', icon: { brand: siPython } },
+      { name: 'Stripe', icon: { brand: siStripe } },
+      { name: 'Card & QR payments', icon: { lucide: CreditCard } },
+    ],
+  },
+  {
+    key: 'ai',
+    projects: ['Private Translation Cloud (PTC)'],
+    tools: [
+      { name: 'Claude API', icon: { brand: siClaude } },
+      { name: 'OpenAI API', icon: { lucide: Sparkles } },
+      { name: 'RubyLLM', icon: { brand: siRuby } },
+      { name: 'LangChain', icon: { brand: siLangchain } },
+      { name: 'Ollama', icon: { brand: siOllama } },
+      { name: 'n8n', icon: { brand: siN8n } },
+      { name: 'PyTorch', icon: { brand: siPytorch } },
+    ],
+  },
+  {
+    key: 'identity',
+    projects: ['Certificate Verification'],
+    tools: [
+      { name: 'Hyperledger Identus', icon: { lucide: ShieldCheck } },
+      { name: 'W3C Verifiable Credentials', icon: { lucide: BadgeCheck } },
+      { name: 'DIDs & DIDComm', icon: { lucide: KeyRound } },
+      { name: 'Cardano', icon: { brand: siCardano } },
+    ],
+  },
+  {
+    key: 'cloud',
+    projects: ['Rally', 'Private Translation Cloud (PTC)'],
+    tools: [
+      { name: 'AWS', icon: { lucide: Cloud } },
+      { name: 'Terraform', icon: { brand: siTerraform } },
+      { name: 'Docker & Kamal', icon: { brand: siDocker } },
+      { name: 'Kubernetes', icon: { brand: siKubernetes } },
+      { name: 'GitHub Actions', icon: { brand: siGithubactions } },
+      { name: 'Cloudflare', icon: { brand: siCloudflare } },
+      { name: 'Google Cloud', icon: { brand: siGooglecloud } },
+      { name: 'Azure', icon: { lucide: CloudCog } },
+      { name: 'Vercel', icon: { brand: siVercel } },
+      { name: 'Heroku', icon: { lucide: Layers } },
+    ],
+  },
 ];
