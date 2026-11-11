@@ -63,15 +63,30 @@
   },
   "techStack": {
     "eyebrow": "Stack technique",
-    "title": "Une suite technologique full-stack",
-    "subtitle": "Des back-ends Rails aux agents IA et à l'infrastructure cloud : les outils que nous utilisons pour concevoir et livrer.",
-    "filterLabel": "Filtrer les technologies par catégorie",
-    "categories": {
-      "all": "Tout",
-      "backend": "Backend",
-      "ai": "Outils IA",
-      "frontend": "Frontend",
-      "devops": "DevOps et Cloud"
+    "title": "Le bon outil pour chaque besoin",
+    "subtitle": "Nous ne collectionnons pas les frameworks : nous choisissons des outils éprouvés pour chaque partie de votre produit, regroupés ici selon ce qu'ils apportent.",
+    "usedIn": "Utilisé dans",
+    "groups": {
+      "product": {
+        "title": "Applications web",
+        "description": "Produits destinés aux clients et outils internes, de la première version à la croissance."
+      },
+      "data": {
+        "title": "Données, API et paiements",
+        "description": "Modèles de données solides, recherche rapide, tâches en arrière-plan et flux de paiement qui tiennent la charge."
+      },
+      "ai": {
+        "title": "IA et automatisation",
+        "description": "Des fonctionnalités LLM vraiment utiles : assistants, traduction, recherche documentaire et workflows automatisés."
+      },
+      "identity": {
+        "title": "Identité numérique et confiance",
+        "description": "Attestations infalsifiables et identité auto-souveraine, fondées sur les standards ouverts du W3C."
+      },
+      "cloud": {
+        "title": "Cloud et livraison",
+        "description": "Infrastructure as code, conteneurs et pipelines CI/CD qui rendent chaque mise en production routinière."
+      }
     }
   },
   "about": {
