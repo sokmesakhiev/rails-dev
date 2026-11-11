@@ -63,15 +63,30 @@
   },
   "techStack": {
     "eyebrow": "Tech Stack",
-    "title": "Full-Stack Technology Suite",
-    "subtitle": "From Rails back ends to AI agents and cloud infrastructure: the tools we use to build and ship.",
-    "filterLabel": "Filter technologies by category",
-    "categories": {
-      "all": "All",
-      "backend": "Backend",
-      "ai": "AI Tools",
-      "frontend": "Frontend",
-      "devops": "DevOps & Cloud"
+    "title": "The right tool for each job",
+    "subtitle": "We don't collect frameworks. We choose proven tools for each part of your product, grouped here by what they deliver.",
+    "usedIn": "Used in",
+    "groups": {
+      "product": {
+        "title": "Web applications",
+        "description": "Customer-facing products and internal tools, from the first release through growth."
+      },
+      "data": {
+        "title": "Data, APIs & payments",
+        "description": "Solid data models, fast search, background jobs and payment flows that hold up under load."
+      },
+      "ai": {
+        "title": "AI & automation",
+        "description": "LLM features that earn their place: assistants, translation, retrieval and hands-off workflows."
+      },
+      "identity": {
+        "title": "Digital identity & trust",
+        "description": "Tamper-proof credentials and self-sovereign identity, built on open W3C standards."
+      },
+      "cloud": {
+        "title": "Cloud & delivery",
+        "description": "Infrastructure as code, containers and CI/CD pipelines that make releases routine."
+      }
     }
   },
   "about": {
