@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Target, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import BookCallButton from "@/components/BookCallButton";
+import { CAL_LINK } from "@/lib/booking";
 
 const About = () => {
   const { t } = useTranslation();
@@ -63,14 +65,9 @@ const About = () => {
         <div className="mt-16 max-w-4xl mx-auto bg-linear-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center">
           <h3 className="text-3xl font-bold mb-4">{t('hero.cta')}</h3>
           <p className="text-lg text-muted-foreground mb-6">
-            {t('about.cta')}
+            {CAL_LINK ? t('booking.subtitle') : t('about.cta')}
           </p>
-          <a
-            href="mailto:ksokmesa@gmail.com"
-            className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
-          >
-            {t('nav.getStarted')}
-          </a>
+          <BookCallButton>{t('nav.getStarted')}</BookCallButton>
         </div>
       </div>
     </section>

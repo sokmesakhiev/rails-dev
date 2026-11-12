@@ -165,5 +165,9 @@
     "notFound": "Article non trouvé",
     "noArticles": "Aucun article trouvé dans cette catégorie.",
     "tags": "Tags"
+  },
+  "booking": {
+    "bookCall": "Réserver un appel",
+    "subtitle": "Choisissez le créneau qui vous convient et parlez-nous un peu de votre projet. Sans engagement."
   }
 }

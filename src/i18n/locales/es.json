@@ -165,5 +165,9 @@
     "notFound": "Artículo no encontrado",
     "noArticles": "No se encontraron artículos en esta categoría.",
     "tags": "Etiquetas"
+  },
+  "booking": {
+    "bookCall": "Reservar una llamada",
+    "subtitle": "Elige el horario que mejor te convenga y cuéntanos un poco sobre tu proyecto. Sin compromiso."
   }
 }
