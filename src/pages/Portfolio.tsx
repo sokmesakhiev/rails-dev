@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Calendar, BriefcaseBusiness } from "lucide-react";
 import { siGithub } from "simple-icons";
 import BrandIcon from "@/components/BrandIcon";
+import BookCallButton from "@/components/BookCallButton";
+import { CAL_LINK } from "@/lib/booking";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useTranslation } from "react-i18next";
@@ -276,14 +278,9 @@ const Portfolio = () => {
             <div className="mt-16 bg-linear-to-r from-primary/10 to-accent/10 rounded-2xl p-8 sm:p-12 text-center animate-fade-in-up delay-300">
               <h3 className="text-3xl font-bold mb-4">{t('portfolio.interestedInWorkingTogether')}</h3>
               <p className="text-lg text-muted-foreground mb-6">
-                {t('portfolio.letDiscussYourProject')}
+                {CAL_LINK ? t('booking.subtitle') : t('portfolio.letDiscussYourProject')}
               </p>
-              <a
-                href="mailto:ksokmesa@gmail.com"
-                className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity"
-              >
-                {t('portfolio.getInTouch')}
-              </a>
+              <BookCallButton>{t('portfolio.getInTouch')}</BookCallButton>
             </div>
           </div>
         </div>

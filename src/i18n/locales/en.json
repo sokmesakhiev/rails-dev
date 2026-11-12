@@ -165,5 +165,9 @@
     "notFound": "Article not found",
     "noArticles": "No articles found in this category.",
     "tags": "Tags"
+  },
+  "booking": {
+    "bookCall": "Book a call",
+    "subtitle": "Pick a time that suits you and tell us a little about your project. No commitment."
   }
 }
