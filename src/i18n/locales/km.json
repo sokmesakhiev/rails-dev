@@ -7,7 +7,9 @@
     "portfolio": "ប្រវត្តិរូប",
     "projects": "គម្រោង",
     "articles": "អត្ថបទ",
-    "getStarted": "ចាប់ផ្តើម"
+    "getStarted": "ចាប់ផ្តើម",
+    "openMenu": "បើកម៉ឺនុយ",
+    "closeMenu": "បិទម៉ឺនុយ"
   },
   "hero": {
     "title": "អ្នកជំនាញ Ruby on Rails និង ReactJS",
