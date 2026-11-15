@@ -7,7 +7,9 @@
     "portfolio": "Portfolio",
     "projects": "Projets",
     "articles": "Articles",
-    "getStarted": "Commencer"
+    "getStarted": "Commencer",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "hero": {
     "title": "Experts Ruby on Rails et ReactJS",
