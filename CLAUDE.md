@@ -23,7 +23,7 @@ There is no test framework or test suite. Verify changes with lint, `npm run typ
 
 - **Entry:** `src/main.tsx` loads the font, `index.css` and i18n (`src/i18n/config.ts`), then hydrates `App.tsx` (a `BrowserRouter` around `AppRoutes`). Routes: `/`, `/portfolio`, `/projects`, `/articles`, `/articles/:id`, and `*` → `NotFound`; all but `Index` are `React.lazy`. New routes go above the catch-all, and a new page also needs an entry in `src/lib/seo.ts` to get its own HTML file.
 - **Build-time prerender:** `npm run build` runs three steps. `vite build` emits `dist/<route>/index.html` per entry in `pageMetas` (the `seoPages` plugin in `vite.config.ts`: head tags + `sitemap.xml`). `vite build --ssr src/entry-server.tsx` bundles `AppRoutes` in a `StaticRouter`. `scripts/prerender.mjs` renders each route into its file's `#root` and tags it `data-prerendered="<path>"`. `main.tsx` hydrates only when that matches the URL, otherwise it client-renders (unknown paths get the home page's file). So components must render the same on server and client: no `window`/`document` during render (effects and handlers are fine), and anything browser-only (like mermaid) is imported lazily.
-- **Pages** (`src/pages/`) each render `Navigation` + content + `Footer` themselves; there is no shared layout route. The home page (`Index.tsx`) is just `Hero`, `Services`, `About` sections. `Navigation` scrolls to those section ids (`home`, `services`, `about`) on `/` and navigates (via `navigate()` on buttons) for the other routes.
+- **Pages** (`src/pages/`) each render `Navigation` + content + `Footer` themselves; there is no shared layout route. The home page (`Index.tsx`) is just `Hero`, `Services`, `About` sections. `Navigation` items are real `<Link>`s so crawlers can follow them: sections are `/#services`, `/#tech-stack`, `/#about` (on `/` a plain click scrolls smoothly instead), pages are `/portfolio/` etc. After an in-app navigation it scrolls to the hash or to the top; the initial load (`location.key === "default"`) is left to the browser. Don't turn menu items back into `navigate()` buttons.
 - **Content is hard-coded in components**, not fetched:
   - Articles: `src/data/mockArticles.ts` (`Article` interface; `content` is a Markdown string). Category must be one of `rails | react | fullstack | devops`, which matches the filter in `Articles.tsx`.
   - Portfolio experience entries: inline array in `Portfolio.tsx` (English only, not translated).
@@ -61,4 +61,6 @@ TypeScript runs loose (`strict: false`, `strictNullChecks: false`, `noImplicitAn
 
 ## Leftovers to be aware of
 
-`lovable-tagger` runs in development mode (`vite.config.ts`). `index.html` still carries Lovable-hosted OG images, and the package name is `vite_react_shadcn_ts`.
+`lovable-tagger` runs in development mode (`vite.config.ts`), and the package name is `vite_react_shadcn_ts`.
+
+The share image (`og:image` / `twitter:image` in `index.html`) is `public/og-image.png`, rendered from `scripts/og-image.html` (instructions in that file).

@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  Source for public/og-image.png, the 1200x630 image shown when a page is
+  shared (Open Graph / Twitter card). Colors are the site's theme tokens from
+  src/index.css; the font is the site's Outfit. To regenerate after editing:
+    npx playwright screenshot --viewport-size=1200,630 \
+      "file://$PWD/scripts/og-image.html" public/og-image.png
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: "Outfit";
+    src: url("../node_modules/@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+  }
+  :root {
+    --primary: hsl(221 83% 53%);
+    --accent: hsl(351 95% 71%);
+    --foreground: hsl(222 47% 11%);
+    --muted: hsl(220 9% 46%);
+    --border: hsl(220 13% 91%);
+  }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Outfit", sans-serif;
+    color: var(--foreground);
+    background:
+      radial-gradient(600px 400px at 1100px -40px, hsl(221 83% 53% / 0.16), transparent 70%),
+      radial-gradient(520px 380px at 1180px 640px, hsl(351 95% 71% / 0.18), transparent 70%),
+      #fff;
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .wordmark {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    align-self: flex-start;
+  }
+  h1 {
+    margin-top: 56px;
+    font-size: 76px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    max-width: 900px;
+  }
+  .areas {
+    margin-top: 28px;
+    font-size: 30px;
+    color: var(--muted);
+  }
+  .areas span { color: var(--primary); padding: 0 10px; }
+  footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    border-top: 2px solid var(--border);
+    font-size: 26px;
+  }
+  .url { font-weight: 600; }
+  .cta {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="wordmark">RailsDev</div>
+  <h1>Ruby on Rails &amp; React consulting</h1>
+  <p class="areas">Web apps<span>·</span>AI &amp; automation<span>·</span>Cloud<span>·</span>Digital identity</p>
+  <footer>
+    <span class="url">rails-dev.com</span>
+    <span class="cta">Book a call</span>
+  </footer>
+</body>
+</html>
