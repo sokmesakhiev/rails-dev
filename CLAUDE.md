@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-"RailsDev" — a static marketing/portfolio site for a Ruby on Rails & React consultant (home, portfolio/CV, projects, articles). Despite the repo name, there is **no Rails code**: it is a Vite + React 18 + TypeScript SPA built on shadcn/ui and Tailwind CSS v4, originally scaffolded by Lovable. There is no backend and no API calls; all content lives in the source.
+"RailsDev" — a static marketing/portfolio site for a Ruby on Rails & React consultant (home, portfolio/CV, projects, articles). Despite the repo name, there is **no Rails code**: it is a Vite + React 19 + TypeScript SPA built on shadcn/ui and Tailwind CSS v4, originally scaffolded by Lovable. There is no backend and no API calls; all content lives in the source.
 
 ## Commands
 
