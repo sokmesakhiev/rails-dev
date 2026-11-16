@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { mockArticles, Article } from '@/data/mockArticles';
 
-type Category = 'all' | 'rails' | 'react' | 'fullstack' | 'devops';
+type Category = 'all' | 'rails' | 'react' | 'fullstack' | 'devops' | 'ai';
 
 const Articles = () => {
   const { t } = useTranslation();
@@ -21,6 +21,7 @@ const Articles = () => {
     { key: 'react', label: t('articles.categories.react', 'ReactJS') },
     { key: 'fullstack', label: t('articles.categories.fullstack', 'Full-Stack') },
     { key: 'devops', label: t('articles.categories.devops', 'DevOps') },
+    { key: 'ai', label: t('articles.categories.ai', 'AI') },
   ];
 
   const filteredArticles = selectedCategory === 'all'

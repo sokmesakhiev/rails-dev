@@ -6,7 +6,7 @@ export interface Article {
   author: string;
   publishedAt: string;
   readTime: number;
-  category: 'rails' | 'react' | 'fullstack' | 'devops';
+  category: 'rails' | 'react' | 'fullstack' | 'devops' | 'AI';
   tags: string[];
   imageUrl?: string;
 }
@@ -724,5 +724,49 @@ The platform implements an automated threshold monitoring system that flags crit
     readTime: 9,
     category: 'react',
     tags: ['ReactJS', 'State Management', 'Frontend', 'Architecture'],
+  },
+  {
+    id: '8',
+    title: 'AI Is Changing App Development — And It Could Have Prevented Many Engineering Mistakes.',
+    excerpt: 'AI can write the code. Engineering judgment makes it production-ready.',
+    content: `
+
+I once had the opportunity to work with a tech company where most products were built by junior developers and guided by relatively inexperienced technical leadership.
+
+What I discovered was a collection of engineering challenges that could have been avoided with better practices:
+
+- Messy codebases, with thousands of lines of code in a single file.
+- Massive code duplication and a lack of clean code standards.
+- Microservices introduced prematurely, adding unnecessary architectural complexity where a well-designed monolith would have been more than enough.
+- No automated testing, meaning new features frequently broke existing functionality.
+- No proper code quality or security checks.
+- Critical security gaps, including missing access control (ACL) and internal services communicating without proper authentication.
+
+It made me think: **What if AI had been part of the development process from day one?**
+
+I'm confident that AI-assisted development, when guided by sound engineering principles, could have helped prevent or significantly reduce many of these problems.
+
+Today, AI can help developers:
+- Review code quality and identify bad practices.
+- Detect duplicated code and suggest better structures.
+- Generate meaningful automated tests.
+- Identify potential security vulnerabilities.
+- Challenge architectural decisions before unnecessary complexity becomes technical debt.
+
+But here is something important: **AI doesn't replace engineering experience. It amplifies it.**
+
+The real value comes when experienced engineers know how to guide AI, challenge its output, establish architectural direction, and ensure that what gets shipped meets engineering standards.
+
+I believe the future of software development isn't simply about writing more code with AI. It's about building better software with fewer mistakes, less technical debt, and stronger engineering foundations.
+
+**AI can write the code. Engineering judgment makes it production-ready.**
+
+#AI #SoftwareEngineering #AppDevelopment #TechLeadership #CleanCode
+    `,
+    author: 'Khiev Sokmesa',
+    publishedAt: '2026-11-15',
+    readTime: 8,
+    category: 'AI',
+    tags: ['AI', 'Backend', 'Best Practices'],
   },
 ];
