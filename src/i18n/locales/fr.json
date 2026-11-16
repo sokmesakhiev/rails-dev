@@ -159,7 +159,8 @@
       "rails": "Ruby on Rails",
       "react": "ReactJS",
       "fullstack": "Full-Stack",
-      "devops": "DevOps"
+      "devops": "DevOps",
+      "ai": "IA"
     },
     "minRead": "min de lecture",
     "readMore": "Lire la Suite",
