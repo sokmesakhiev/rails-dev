@@ -6,7 +6,7 @@ export interface Article {
   author: string;
   publishedAt: string;
   readTime: number;
-  category: 'rails' | 'react' | 'fullstack' | 'devops' | 'AI';
+  category: 'rails' | 'react' | 'fullstack' | 'devops' | 'ai';
   tags: string[];
   imageUrl?: string;
 }
@@ -766,7 +766,7 @@ I believe the future of software development isn't simply about writing more cod
     author: 'Khiev Sokmesa',
     publishedAt: '2026-11-15',
     readTime: 8,
-    category: 'AI',
+    category: 'ai',
     tags: ['AI', 'Backend', 'Best Practices'],
   },
 ];
